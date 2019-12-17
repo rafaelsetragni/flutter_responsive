@@ -93,7 +93,7 @@ class _HomePage extends State<HomePage> {
                             '<div>'
                                 '<h3>Responsive Layouts</h3><h6>for <i>Flutter</i></h6>'
                                 '<br><br>'
-                                '<p>This RichText was easily produced and personalized using pure HTML</p>'
+                                '<p>This <b>RichText</b> was easily produced and personalized using pure HTML</p>'
                                 '<p>Bellow there is an example of 12 columns, wich changes the amount of each line depending of his father´s widget size.</p>'
                             '</div>',
                           )

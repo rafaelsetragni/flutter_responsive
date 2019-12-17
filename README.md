@@ -1,4 +1,4 @@
-# About flutter_responsive plugin
+# About ```flutter_responsive``` plugin
 
 ![example_6](example/assets/example6.png "Responsive grid tests")
 ![example_7](example/assets/example7.png "Responsive text tests")
@@ -16,10 +16,10 @@ To share your improvements, please first do a Fork of this project, change what 
 
 # IMPORTANT NOTES:
 
-* This pluggin was based on [Bootstrap Web Plugin Project](https://getbootstrap.com/), but do not implement all his features (yet).
+* This pluggin was based on [Bootstrap Web Project](https://getbootstrap.com/), but do not implement all its features (not yet).
 * The column responsivity is based on his closest parent widget size, not over the screen size, such as Bootstrap.
 * All the widgets contains margin, padding, width, height (maximun and minimum edges), such as ```div``` Html element.
-* Be free to improve and change this project.
+* Fell free to improve and change this project.
 
 
 # How to Use

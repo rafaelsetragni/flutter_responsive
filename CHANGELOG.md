@@ -1,3 +1,7 @@
+## 0.0.2+2
+
+* Improvements on source to increase Pub Dev score. Also the README file was completed.
+
 ## 0.0.2+1
 
 * Improvements on source to increase Pub Dev score, such as format source and @immutable objects with non-final variables

@@ -28,7 +28,7 @@ Add the dependency bellow into your ```pubspec.yaml``` file.
 
 ```yaml
 dependencies:
-  flutter_responsive: 0.0.1
+  flutter_responsive: ^0.0.1
 ```
 Add the reference into your ```.dart``` files
 ```dart

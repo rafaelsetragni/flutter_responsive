@@ -1,16 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:html/dom.dart' as dom;
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:flutter_responsive_example/layouts/sidebar.dart';
-import 'dart:math';
 
 class TypographyPerformancePage extends StatefulWidget {
-
-  int amountLines = 1;
 
   @override
   _TypographyPerformancePage createState() => new _TypographyPerformancePage();
@@ -18,11 +11,13 @@ class TypographyPerformancePage extends StatefulWidget {
 
 class _TypographyPerformancePage extends State<TypographyPerformancePage> {
 
+
+  int amountLines = 1;
   int amountRenderLines;
 
   @override
   void initState() {
-    amountRenderLines = widget.amountLines;
+    amountRenderLines = amountLines;
     super.initState();
   }
 
@@ -37,6 +32,7 @@ class _TypographyPerformancePage extends State<TypographyPerformancePage> {
         drawer: Sidebar(),
         body: Scrollbar(
           child: ListView(
+            physics: const AlwaysScrollableScrollPhysics(),
             padding: EdgeInsets.symmetric(horizontal: 10),
             children: <Widget>[
               SizedBox(
@@ -49,11 +45,11 @@ class _TypographyPerformancePage extends State<TypographyPerformancePage> {
                 min: 0.0,
                 max: 50.0,
                 divisions: 50,
-                value: widget.amountLines.toDouble(),
-                label: '${widget.amountLines.round()}',
+                value: amountLines.toDouble(),
+                label: '${amountLines.round()}',
                 onChanged: (double value) {
                   setState(() {
-                    widget.amountLines = value.toInt();
+                    amountLines = value.toInt();
                   });
                 },
                 onChangeEnd: (double value) {

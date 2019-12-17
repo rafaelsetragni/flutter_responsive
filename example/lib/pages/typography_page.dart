@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:html/dom.dart' as dom;
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:flutter_responsive_example/layouts/sidebar.dart';
 

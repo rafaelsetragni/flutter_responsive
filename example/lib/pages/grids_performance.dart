@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:html/dom.dart' as dom;
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:flutter_responsive_example/layouts/sidebar.dart';
 import 'dart:math';
 
 class GridPerformancePage extends StatefulWidget {
-  double  displayLines = 10;
+
   @override
   _GridPerformancePage createState() => new _GridPerformancePage();
 }
 
 class _GridPerformancePage extends State<GridPerformancePage> {
 
+  double  displayLines = 10;
   double  amountLines, heightBoxes, seed;
   bool switchTest;
   int columns;
@@ -26,7 +23,7 @@ class _GridPerformancePage extends State<GridPerformancePage> {
   @override
   void initState() {
     switchTest = true;
-    amountLines = widget.displayLines;
+    amountLines = displayLines;
     heightBoxes = 150;
     columns = 2;
 
@@ -55,11 +52,11 @@ class _GridPerformancePage extends State<GridPerformancePage> {
               min: 0.0,
               max: 100.0,
               divisions: 20,
-              value: widget.displayLines,
-              label: '${widget.displayLines.round()}',
+              value: displayLines,
+              label: '${displayLines.round()}',
               onChanged: (double value) {
                 setState(() {
-                  widget.displayLines = value;
+                  displayLines = value;
                 });
               },
               onChangeEnd: (double value) {

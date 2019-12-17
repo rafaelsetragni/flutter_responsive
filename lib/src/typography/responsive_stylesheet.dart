@@ -1,13 +1,8 @@
-
 import 'package:flutter/cupertino.dart';
 
-enum DisplayStyle {
-  block,
-  inline
-}
+enum DisplayStyle { block, inline }
 
 class ResponsiveStylesheet {
-
   TextStyle textStyle;
   TextOverflow textOverflow;
   DisplayStyle displayStyle;
@@ -37,10 +32,12 @@ class ResponsiveStylesheet {
     this.height,
   });
 
-  ResponsiveStylesheet merge(ResponsiveStylesheet newStylesheet, {bool mergeBoxProperties = false}){
-
-    if(newStylesheet != null){
-      textStyle = newStylesheet.textStyle == null ? textStyle : newStylesheet.textStyle.merge( textStyle ?? TextStyle() );
+  ResponsiveStylesheet merge(ResponsiveStylesheet newStylesheet,
+      {bool mergeBoxProperties = false}) {
+    if (newStylesheet != null) {
+      textStyle = newStylesheet.textStyle == null
+          ? textStyle
+          : newStylesheet.textStyle.merge(textStyle ?? TextStyle());
       opacity = newStylesheet.opacity ?? opacity;
       textAlign = newStylesheet.textAlign ?? textAlign;
       boxAlignment = newStylesheet.boxAlignment ?? boxAlignment;
@@ -48,30 +45,34 @@ class ResponsiveStylesheet {
       displayStyle = newStylesheet.displayStyle ?? displayStyle;
       textOverflow = newStylesheet.textOverflow ?? textOverflow;
 
-      if(mergeBoxProperties){
+      if (mergeBoxProperties) {
         width = newStylesheet.width ?? width;
         height = newStylesheet.height ?? height;
-        padding = padding?.add(newStylesheet.padding ?? EdgeInsets.zero) ?? newStylesheet.padding;
-        margin = margin?.add(newStylesheet.margin ?? EdgeInsets.zero) ?? newStylesheet.margin;
+        padding = padding?.add(newStylesheet.padding ?? EdgeInsets.zero) ??
+            newStylesheet.padding;
+        margin = margin?.add(newStylesheet.margin ?? EdgeInsets.zero) ??
+            newStylesheet.margin;
         boxDecoration = newStylesheet.boxDecoration;
       }
     }
     return this;
   }
 
-  static ResponsiveStylesheet cascade(ResponsiveStylesheet oldStylesheet, ResponsiveStylesheet newStylesheet, {bool mergeBoxProperties = false}){
-
+  static ResponsiveStylesheet cascade(
+      ResponsiveStylesheet oldStylesheet, ResponsiveStylesheet newStylesheet,
+      {bool mergeBoxProperties = false}) {
     ResponsiveStylesheet resultedStylesheet = ResponsiveStylesheet();
 
-    if(oldStylesheet != null){
-      resultedStylesheet.merge(oldStylesheet, mergeBoxProperties: mergeBoxProperties);
+    if (oldStylesheet != null) {
+      resultedStylesheet.merge(oldStylesheet,
+          mergeBoxProperties: mergeBoxProperties);
     }
 
-    if(newStylesheet != null){
-      resultedStylesheet.merge(newStylesheet, mergeBoxProperties: mergeBoxProperties);
+    if (newStylesheet != null) {
+      resultedStylesheet.merge(newStylesheet,
+          mergeBoxProperties: mergeBoxProperties);
     }
 
     return resultedStylesheet;
   }
-
 }

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_example/pages/grids_page.dart';
-import 'package:flutter_responsive_example/pages/grids_performance.dart';
 import 'package:flutter_responsive_example/pages/home_page.dart';
-import 'package:flutter_responsive_example/pages/typography_page.dart';
-import 'package:flutter_responsive_example/pages/typography_performance.dart';
 
 void main() => runApp(MyApp());
 

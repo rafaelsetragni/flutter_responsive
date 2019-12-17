@@ -1,6 +1,4 @@
-
 class ResponsiveScreen {
-
   static Map<String, double> limits = {
     'us': 0.00,
     // Smart watches
@@ -18,17 +16,18 @@ class ResponsiveScreen {
     // Desktops and TVs 4K
   };
 
-  static getReferenceSize(double width){
+  static getReferenceSize(double width) {
     String located = limits.keys.first;
-    for(String tag in limits.keys){
-      if(limits[tag] > width) return located;
+    for (String tag in limits.keys) {
+      if (limits[tag] > width) return located;
       located = tag;
     }
     return located;
   }
 
-  static bool isScreenSize(String tag, double screenSize){
-    return !limits.containsKey(tag) ? false :
-              (screenSize < 0 ? 0 : screenSize) >= limits[tag];
+  static bool isScreenSize(String tag, double screenSize) {
+    return !limits.containsKey(tag)
+        ? false
+        : (screenSize < 0 ? 0 : screenSize) >= limits[tag];
   }
 }

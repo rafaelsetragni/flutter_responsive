@@ -1,7 +1,3 @@
-
-import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_responsive/src/grid/responsive_screen.dart';
 
@@ -84,26 +80,30 @@ abstract class ResponsiveWidget extends StatelessWidget {
     return widgetHeight == double.infinity ? null : widgetHeight;
 
   }
-
+/*
   @protected
   Widget lastWidget;
 
   @protected
   Size lastSize;
-
+*/
   buildWidget(BuildContext context);
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData mediaQuery = MediaQuery.of(context);
+    //MediaQueryData mediaQuery = MediaQuery.of(context);
 
-    // Just rebuild objects if its necessary
-    if(lastWidget == null || lastSize != mediaQuery.size){
+    // Just rebuild objects if its necessary.
+    // Was necessary to use mutable object into imutable class due to Flutter redo all the
+    // calculations on each frame.
+    // Using a temporary variable to store the already calculated object improves performance
+    /*if(lastWidget == null || lastSize != mediaQuery.size){
       lastSize = mediaQuery.size;
       lastWidget = buildWidget(context);
     }
 
-    return lastWidget;
+    return lastWidget;*/
+    return buildWidget(context);
   }
 
 }

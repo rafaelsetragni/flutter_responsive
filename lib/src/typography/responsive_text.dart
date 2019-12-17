@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/src/typography/responsive_parser.dart';
 import 'package:flutter_responsive/src/typography/responsive_stylesheet.dart';
-import 'package:html/parser.dart';
 
 import 'responsive_stylesheet.dart';
 
 class ResponsiveText extends StatelessWidget {
 
-  List<String> allowedElements;
-  Map<String, ResponsiveStylesheet> stylesheet;
+  final List<String> allowedElements = [];
+  final Map<String, ResponsiveStylesheet> stylesheet = {};
 
-  ResponsiveParser parser;
+  final ResponsiveParser parser = ResponsiveParser();
   final String text;
 
   final double indentSize = 10.0;
@@ -34,8 +33,8 @@ class ResponsiveText extends StatelessWidget {
 
   ResponsiveText({
       this.text = '',
-      this.allowedElements,
-      this.stylesheet,
+      List<String> allowedElements = const [],
+      Map<String, ResponsiveStylesheet> stylesheet = const {},
       this.boxAlign,
       this.padding,
       this.margin,
@@ -49,15 +48,20 @@ class ResponsiveText extends StatelessWidget {
       this.onImageError,
       this.onLinkTap
   }){
-    parser = ResponsiveParser(allowedElements ?? []);
+    if(allowedElements.isNotEmpty){
+      this.allowedElements.clear();
+      this.allowedElements.addAll(allowedElements);
+
+      parser.allowedElements = allowedElements;
+    }
+    if(stylesheet.isNotEmpty){
+      this.stylesheet.clear();
+      this.stylesheet.addAll(stylesheet);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-
-    if(stylesheet == null){
-      stylesheet = {};
-    }
 
     stylesheet.addAll({
       'body' : ResponsiveStylesheet(

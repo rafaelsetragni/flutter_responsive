@@ -1,6 +1,6 @@
 name: flutter_responsive
-description: Responsive grid and text behaviour for Flutter
-version: 0.0.1
+description: Responsive and wrap behaviour for layout and texts widgets in Flutter. This plugin was inspired by Bootstrap web project.
+version: 0.0.2
 homepage: https://github.com/rafaelsetragni/flutter_responsive
 
 environment:

@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9ca9be8-ef83-42b3-9646-f328f611d9a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/grid/responsive_col.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/grid/responsive_col.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/grid/responsive_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/grid/responsive_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/typography/responsive_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/typography/responsive_text.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -72,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+            <state relative-caret-position="427">
+              <caret line="273" column="21" lean-forward="true" selection-start-line="273" selection-start-column="21" selection-end-line="273" selection-end-column="21" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -375,7 +370,7 @@
       <window_info anchor="bottom" id="Logcat" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.30227518" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.3033586" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32936078" />
@@ -572,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -586,10 +574,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+        <state relative-caret-position="427">
+          <caret line="273" column="21" lean-forward="true" selection-start-line="273" selection-start-column="21" selection-end-line="273" selection-end-column="21" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

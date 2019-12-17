@@ -80,7 +80,7 @@ ResponsiveScreen.limits = {
 
 ## Grid Usage
 
-This pluggin have 3 major grid elements:
+This plugin have 3 major grid elements:
 
 * ResponsiveContainer: Container to all page elements, such as Rows and Columns, centralizing the content and beeing limited to a maximum width size
 ```dart
@@ -100,14 +100,20 @@ ResponsiveContainer(
 )
 ```
 
-* ResponsiveRow: Container 
+* ResponsiveRow: Container wich contains many columns or even other widget. 
+OBS: Its not necessary to wrap inner widgets into a ResponsiveCol object. 
 ```dart
 ResponsiveRow(
 
   margin: EdgeInsets.only(top: 20, bottom: 5),
   
   children: <Widget>[
-    Text('Grid Offset Test', style: ResponsiveTypography.h2)
+  
+    ResponsiveCol(),
+    ResponsiveCol(),
+    ResponsiveCol(),
+    
+    Text('It´s fine to use another widget directly inside a ResponsiveRow', style: ResponsiveTypography.q)
   ]
 ),
 ```
@@ -125,7 +131,7 @@ ResponsiveCol(
       'xl' : 1,
   },
   children: [
-      Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit')
+      Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit', style: ResponsiveTypography.h2)
   ]
 )
 ```
@@ -250,7 +256,7 @@ class _HomePage extends State<HomePage> {
 ### Final result:
 ![example_9](example/assets/example9.png "Final result")
 
-# How to run the pluggin example
+# How to run the plugin example
 
 This project is a starting point for a Flutter
 [plug-in package](https://flutter.dev/developing-packages/),
@@ -260,3 +266,11 @@ Android and/or iOS.
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
+
+To run the full example App, wich contains performance and case tests, do the steps bellow:
+
+* Clone this project into your local machine using Github Desktop or any other git program of your preference.
+* Download Android Studio and the last Flutter SDK into your local machine. Configure they to works properly such as [this article here](https://flutter.dev/docs/get-started/editor?tab=vscode)
+* Run ```flutter pub get``` to update all the dependencies
+* Debug the file ```example/lib/main.dart``` or any of the unity case tests located on ```test``` folder on emulator or real device.
+* To run properly the performance tests, please run the app using ```flutter run --release```

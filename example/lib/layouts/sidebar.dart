@@ -97,7 +97,7 @@ class Sidebar extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("Tipography"),
+                Text("Typography"),
                 Icon(FontAwesomeIcons.font)
               ],
             ),

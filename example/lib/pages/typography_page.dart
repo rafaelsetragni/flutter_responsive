@@ -58,7 +58,7 @@ class _TypographyPage extends State<TypographyPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-              'Typhography', overflow: TextOverflow.ellipsis),
+              'Typography', overflow: TextOverflow.ellipsis),
         ),
         drawer: Sidebar(),
         body: DefaultTextStyle(

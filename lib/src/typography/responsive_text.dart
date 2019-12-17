@@ -43,9 +43,9 @@ class ResponsiveText extends StatelessWidget {
       this.boxDecoration,
       this.defaultTextStyle,
       this.defaultLinkStyle,
-      this.shrinkToFit,
+      this.shrinkToFit = false,
       this.renderNewLines = true,
-      this.showImages,
+      this.showImages = false,
       this.onImageError,
       this.onLinkTap
   }){

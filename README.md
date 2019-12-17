@@ -3,7 +3,7 @@
 ![example_6](example/assets/example6.png "Responsive grid tests")
 ![example_7](example/assets/example7.png "Responsive text tests")
 
-This pluggin provides a easy and productive way to work with responsive layouts for Flutter Applications in mobile, desktop and web, allowing your layout to adapt and wrap widgets ( Container, Rows, Columns and RichText ) referent to the size of his parent element.
+This plugin provides a easy and productive way to work with responsive layouts for Flutter Applications in mobile, desktop and web, allowing your layout to adapt and wrap widgets ( Container, Rows, Columns and RichText ) referent to the size of his parent element.
 
 Made by [Rafael Setragni](https://br.linkedin.com/in/rafael-setragni-55702823) to all Flutter's Community.
 
@@ -16,7 +16,7 @@ To share your improvements, please first do a Fork of this project, change what 
 
 # IMPORTANT NOTES:
 
-* This pluggin was based on [Bootstrap Web Project](https://getbootstrap.com/), but do not implement all its features (not yet).
+* This plugin was based on [Bootstrap Web Project](https://getbootstrap.com/), but do not implement all its features (not yet).
 * The column responsivity is based on his closest parent widget size, not over the screen size, such as Bootstrap.
 * All the widgets contains margin, padding, width, height (maximun and minimum edges), such as ```div``` Html element.
 * Fell free to improve and change this project.
@@ -38,7 +38,7 @@ Use the Widgets ```ResponsiveContainer```, ```ResponsiveRow```, ```ResponsiveCol
 
 ## Screen Sizes
 
-This pluggin was based on Bootstrap web project and split the screen in 12 columns, considering 7 screen sizes:
+This plugin was based on Bootstrap web project and split the screen in 12 columns, considering 7 screen sizes:
 
 * US - Ultra Small Screens - 0px to 309px
 * XS - Extra Small Screens - 310px to 575px
@@ -247,7 +247,7 @@ class _HomePage extends State<HomePage> {
 }
 ```
 
-### Final result
+### Final result:
 ![example_9](example/assets/example9.png "Final result")
 
 # How to run the pluggin example

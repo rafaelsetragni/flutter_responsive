@@ -43,7 +43,6 @@ class _GridPage extends State<GridPage> {
               widthLimit: ResponsiveScreen.limits['lg'],
 
               margin: EdgeInsets.symmetric(horizontal: 10),
-              width: 300,
 
               children: <Widget>[
 

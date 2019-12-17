@@ -17,6 +17,28 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
+    /*create 12 columns*/
+    List<Widget> responsiveGridExampe =
+
+      /*repeat 12 times*/
+      List<int>.generate(12, (index) => index).map((colIndex) =>
+          ResponsiveCol(
+              padding: EdgeInsets.all(10),
+              backgroundColor: Colors.blue,
+              gridSizes: {
+                'xs' : 4,
+                'sm' : 3,
+                'lg' : 2,
+                'xl' : 1,
+              },
+              children: [
+                Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit')
+              ]
+          )
+      ).toList();
+
+    MediaQueryData mediaQuery = MediaQuery.of(context);
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Home', overflow: TextOverflow.ellipsis),
@@ -30,38 +52,57 @@ class _HomePage extends State<HomePage> {
                 margin: EdgeInsets.symmetric(vertical: 10),
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 backgroundColor: Colors.white,
-                widthLimit: MediaQuery.of(context).size.width * 0.95,
+                widthLimit: mediaQuery.size.width * 0.95,
                 children: <Widget>[
-                  Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        border: Border.all(width: 2.0, color: Theme.of(context).primaryColor),
+                  ResponsiveRow(
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    children: <Widget>[
+
+                      ResponsiveCol(
+                          padding: EdgeInsets.all(10),
+                          margin: EdgeInsets.only(bottom: 20),
+                          backgroundColor: Colors.blueGrey,
+                          children: [
+                            Text('Flutter Responsive Layout', style: ResponsiveTypography.h4.merge(TextStyle(color: Colors.white)))
+                          ]
                       ),
-                      width: 60,
-                      height: 60,
-                      padding: EdgeInsets.all(5),
-                      margin: EdgeInsets.all(10),
-                      alignment: Alignment.center,
-                      child: Image.asset('assets/flutter-512.png', color: Theme.of(context).primaryColor,)
+                    ]
                   ),
-                  ResponsiveText(
-                    shrinkToFit: true,
-                    padding: EdgeInsets.only(bottom: 20),
-                    stylesheet: {
-                      'h3': ResponsiveStylesheet(
-                          textStyle: TextStyle(color: Theme.of(context).primaryColor),
-                          displayStyle: DisplayStyle.block
-                      ),
-                      'h6': ResponsiveStylesheet(
-                          textStyle: TextStyle(color: Theme.of(context).primaryColor),
-                          displayStyle: DisplayStyle.block
+                  ResponsiveRow(
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    children: <Widget>[
+
+                      // By default, the column occupies the entire row, always
+                      ResponsiveCol(
+                        children: [
+                          ResponsiveText(
+                            shrinkToFit: true,
+                            padding: EdgeInsets.only(bottom: 20),
+                            stylesheet: {
+                              'h3': ResponsiveStylesheet(
+                                  textStyle: TextStyle(color: Theme.of(context).primaryColor),
+                                  displayStyle: DisplayStyle.block
+                              ),
+                              'h6': ResponsiveStylesheet(
+                                  textStyle: TextStyle(color: Theme.of(context).primaryColor),
+                                  displayStyle: DisplayStyle.block
+                              )
+                            },
+                            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                            text:
+                            '<div>'
+                                '<h3>Responsive Layouts</h3><h6>for <i>Flutter</i></h6>'
+                                '<br><br>'
+                                '<p>This RichText was easily produced and personalized using pure HTML</p>'
+                                '<p>Bellow there is an example of 12 columns, wich changes the amount of each line depending of his father´s widget size.</p>'
+                            '</div>',
+                          )
+                        ]
                       )
-                    },
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                    text:
-                    '<div>'
-                        '<h3>Responsive Layouts</h3><h6>for <i>Flutter</i></h6>'
-                        '</div>',
+
+                    ]..addAll(
+                        responsiveGridExampe
+                    )
                   )
                 ],
               )

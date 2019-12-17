@@ -152,7 +152,7 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
 
     /*create 12 columns*/
-    List<Widget> responsiveGridExampe =
+    List<Widget> responsiveGridExample =
 
       /*repeat 12 times*/
       List<int>.generate(12, (index) => index).map((colIndex) =>
@@ -234,7 +234,7 @@ class _HomePage extends State<HomePage> {
                       )
 
                     ]..addAll(
-                        responsiveGridExampe
+                        responsiveGridExample
                     )
                   )
                 ],

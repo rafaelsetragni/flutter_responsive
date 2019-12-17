@@ -1,5 +1,8 @@
 # About flutter_responsive plugin
 
+![example_6](example/assets/example6.png "Responsive grid tests")
+![example_7](example/assets/example7.png "Responsive text tests")
+
 This pluggin provides a easy and productive way to work with responsive layouts for Flutter Applications in mobile, desktop and web, allowing your layout to adapt and wrap widgets ( Container, Rows, Columns and RichText ) referent to the size of his parent element.
 
 Made by [Rafael Setragni](https://br.linkedin.com/in/rafael-setragni-55702823) to all Flutter's Community.
@@ -11,28 +14,23 @@ This project follows the GNU General Public License V3, wich means you can chang
 To share your improvements, please first do a Fork of this project, change what you need to and finally do a pull request. And don´t let to share your ideas and needs on "Issues" page, even before to start your changes.
 
 
-# Getting Started
+# IMPORTANT NOTES:
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
-
+* This pluggin was based on [Bootstrap Web Plugin Project](https://getbootstrap.com/), but do not implement all his features (yet).
+* The column responsivity is based on his closest parent widget size, not over the screen size, such as Bootstrap.
+* All the widgets contains margin, padding, width, height (maximun and minimum edges), such as ```div``` Html element.
+* Be free to improve and change this project.
 
 
 # How to Use
 
-Add the dependency bellow into your pubspec.yaml file.
+Add the dependency bellow into your ```pubspec.yaml``` file.
 
 ```yaml
 dependencies:
   flutter_responsive: 1.0
 ```
-Add the reference into your .dart files
+Add the reference into your ```.dart``` files
 ```dart
 import 'package:flutter_responsive/flutter_responsive.dart';
 ```
@@ -248,3 +246,14 @@ class _HomePage extends State<HomePage> {
   }
 }
 ```
+
+# How to run the pluggin example
+
+This project is a starting point for a Flutter
+[plug-in package](https://flutter.dev/developing-packages/),
+a specialized package that includes platform-specific implementation code for
+Android and/or iOS.
+
+For help getting started with Flutter, view our 
+[online documentation](https://flutter.dev/docs), which offers tutorials, 
+samples, guidance on mobile development, and a full API reference.

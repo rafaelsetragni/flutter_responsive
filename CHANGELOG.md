@@ -1,3 +1,7 @@
+## 0.0.2+1
+
+* Improvements on source to increase Pub Dev score, such as format source and @immutable objects with non-final variables
+
 ## 0.0.2
 
 * Fixed english errors on example app.

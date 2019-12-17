@@ -118,7 +118,8 @@ class ResponsiveCol extends ResponsiveWidget {
       return Container(
         alignment: alignment ?? Alignment.topLeft,
         decoration: decoration,
-        width: getColumnSize(gridSizes, mediaQuery.size.width) * constraints.maxWidth,
+        width: getColumnSize(gridSizes, mediaQuery.size.width) *
+            constraints.maxWidth,
         height: getWidgetHeight(constraints.maxHeight),
         padding: padding,
         margin: localMargin ?? margin,

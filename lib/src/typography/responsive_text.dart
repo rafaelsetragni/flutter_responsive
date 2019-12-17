@@ -5,7 +5,6 @@ import 'package:flutter_responsive/src/typography/responsive_stylesheet.dart';
 import 'responsive_stylesheet.dart';
 
 class ResponsiveText extends StatelessWidget {
-
   final List<String> allowedElements = [];
   final Map<String, ResponsiveStylesheet> stylesheet = {};
 
@@ -31,8 +30,8 @@ class ResponsiveText extends StatelessWidget {
 
   final onLinkTap;
 
-  ResponsiveText({
-      this.text = '',
+  ResponsiveText(
+      {this.text = '',
       List<String> allowedElements = const [],
       Map<String, ResponsiveStylesheet> stylesheet = const {},
       this.boxAlign,
@@ -46,15 +45,14 @@ class ResponsiveText extends StatelessWidget {
       this.renderNewLines = true,
       this.showImages = false,
       this.onImageError,
-      this.onLinkTap
-  }){
-    if(allowedElements.isNotEmpty){
+      this.onLinkTap}) {
+    if (allowedElements.isNotEmpty) {
       this.allowedElements.clear();
       this.allowedElements.addAll(allowedElements);
 
       parser.allowedElements = allowedElements;
     }
-    if(stylesheet.isNotEmpty){
+    if (stylesheet.isNotEmpty) {
       this.stylesheet.clear();
       this.stylesheet.addAll(stylesheet);
     }
@@ -62,26 +60,26 @@ class ResponsiveText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     stylesheet.addAll({
-      'body' : ResponsiveStylesheet(
-        textStyle: defaultTextStyle ?? TextStyle( color: Colors.black )//DefaultTextStyle.of(context).style
-      )
+      'body': ResponsiveStylesheet(
+          textStyle: defaultTextStyle ??
+              TextStyle(
+                  color: Colors.black) //DefaultTextStyle.of(context).style
+          )
     });
 
     RichText parsedText = parser.parseHTML(text, renderNewLines, stylesheet);
 
-    return
-      Container(
-        margin: margin,
-        decoration: boxDecoration,
-        alignment: boxAlign,
-        padding: padding,
-        color: backgroundColor,
-        width: shrinkToFit ? null : double.infinity,
-        child: Wrap(
-          children: [ parsedText ],
-        ),
-      );
+    return Container(
+      margin: margin,
+      decoration: boxDecoration,
+      alignment: boxAlign,
+      padding: padding,
+      color: backgroundColor,
+      width: shrinkToFit ? null : double.infinity,
+      child: Wrap(
+        children: [parsedText],
+      ),
+    );
   }
 }

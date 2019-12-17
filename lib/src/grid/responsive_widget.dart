@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_responsive/src/grid/responsive_screen.dart';
 
 abstract class ResponsiveWidget extends StatelessWidget {
-
   final Alignment alignment;
 
   final Color backgroundColor;
@@ -20,33 +19,35 @@ abstract class ResponsiveWidget extends StatelessWidget {
   final double maxHeight;
   final double minHeight;
 
-  ResponsiveWidget({Key key,
-    this.alignment = Alignment.topLeft,
-    this.backgroundColor,
-    this.decoration,
-    this.padding,
-    this.margin,
-    this.width,
-    this.maxWidth,
-    this.minWidth,
-    this.height,
-    this.maxHeight,
-    this.minHeight,
-    this.children
-  });
+  ResponsiveWidget(
+      {Key key,
+      this.alignment = Alignment.topLeft,
+      this.backgroundColor,
+      this.decoration,
+      this.padding,
+      this.margin,
+      this.width,
+      this.maxWidth,
+      this.minWidth,
+      this.height,
+      this.maxHeight,
+      this.minHeight,
+      this.children});
 
   @protected
-  double getColumnSize(Map<String, int> gridSizes, double screenSize){
+  double getColumnSize(Map<String, int> gridSizes, double screenSize) {
     double
         /* 1/12 columns */
         fraction = 0.08332,
         calculatedWidthPercentage = 1;
 
-    if((ResponsiveScreen.limits?.isNotEmpty ?? false) && (gridSizes?.isNotEmpty ?? false)){
-      for(String gridTag in gridSizes.keys){
-        if(ResponsiveScreen.isScreenSize(gridTag, screenSize)) {
-          calculatedWidthPercentage = gridSizes.containsKey(gridTag) ?
-          (fraction * gridSizes[gridTag]) : 1;
+    if ((ResponsiveScreen.limits?.isNotEmpty ?? false) &&
+        (gridSizes?.isNotEmpty ?? false)) {
+      for (String gridTag in gridSizes.keys) {
+        if (ResponsiveScreen.isScreenSize(gridTag, screenSize)) {
+          calculatedWidthPercentage = gridSizes.containsKey(gridTag)
+              ? (fraction * gridSizes[gridTag])
+              : 1;
         } else {
           break;
         }
@@ -57,29 +58,29 @@ abstract class ResponsiveWidget extends StatelessWidget {
   }
 
   @protected
-  double getWidgetWidth(double parentWidth){
+  double getWidgetWidth(double parentWidth) {
     double widgetWidth = width != null ? width : parentWidth;
-    if(maxWidth != null && parentWidth > maxWidth){
+    if (maxWidth != null && parentWidth > maxWidth) {
       widgetWidth = maxWidth;
     }
-    if(minWidth != null && parentWidth < minWidth){
+    if (minWidth != null && parentWidth < minWidth) {
       widgetWidth = minWidth;
     }
     return widgetWidth;
   }
 
   @protected
-  double getWidgetHeight(double parentHeight){
+  double getWidgetHeight(double parentHeight) {
     double widgetHeight = height != null ? height : parentHeight;
-    if(maxHeight != null && parentHeight > maxHeight){
+    if (maxHeight != null && parentHeight > maxHeight) {
       widgetHeight = maxWidth;
     }
-    if(minHeight != null && parentHeight < minHeight){
+    if (minHeight != null && parentHeight < minHeight) {
       widgetHeight = minHeight;
     }
     return widgetHeight == double.infinity ? null : widgetHeight;
-
   }
+
 /*
   @protected
   Widget lastWidget;
@@ -105,5 +106,4 @@ abstract class ResponsiveWidget extends StatelessWidget {
     return lastWidget;*/
     return buildWidget(context);
   }
-
 }

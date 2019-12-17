@@ -29,6 +29,6 @@ class ResponsiveScreen {
 
   static bool isScreenSize(String tag, double screenSize){
     return !limits.containsKey(tag) ? false :
-            screenSize >= limits[tag];
+              (screenSize < 0 ? 0 : screenSize) >= limits[tag];
   }
 }

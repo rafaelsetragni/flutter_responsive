@@ -92,7 +92,7 @@ class _GridPerformancePage extends State<GridPerformancePage> {
                         alignment: Alignment.center,
                         backgroundColor: Color((seed * (rowIndex * 12 + colIndex) * 0xFFFFFF).toInt() << 0).withOpacity(1.0),
                         height: heightBoxes,
-                        gridSizes: { 'xs' : 1 },
+                        gridSizes: { 'us' : 1 },
                         children: <Widget>[
                           Text('R', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
                         ],

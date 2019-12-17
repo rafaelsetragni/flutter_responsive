@@ -47,7 +47,7 @@ abstract class ResponsiveWidget extends StatelessWidget {
         calculatedWidthPercentage = 1;
 
     if((ResponsiveScreen.limits?.isNotEmpty ?? false) && (gridSizes?.isNotEmpty ?? false)){
-      for(String gridTag in ResponsiveScreen.limits.keys){
+      for(String gridTag in gridSizes.keys){
         if(ResponsiveScreen.isScreenSize(gridTag, screenSize)) {
           calculatedWidthPercentage = gridSizes.containsKey(gridTag) ?
           (fraction * gridSizes[gridTag]) : 1;

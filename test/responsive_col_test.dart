@@ -17,13 +17,13 @@ void main() {
   testWidgets('Ultra small grid tests', (WidgetTester tester) async {
 
     reason = 'Ultra small grid should be fractionated for every screen size';
-    expect( testLimitSize( 'us', ResponsiveScreen.limits['us'], false, true, true ), true, reason: reason);
-    expect( testLimitSize( 'us', ResponsiveScreen.limits['xs'], true,  true, true ), true, reason: reason);
-    expect( testLimitSize( 'us', ResponsiveScreen.limits['sm'], true,  true, true ), true, reason: reason);
-    expect( testLimitSize( 'us', ResponsiveScreen.limits['md'], true,  true, true ), true, reason: reason);
-    expect( testLimitSize( 'us', ResponsiveScreen.limits['lg'], true,  true, true ), true, reason: reason);
-    expect( testLimitSize( 'us', ResponsiveScreen.limits['xl'], true,  true, true ), true, reason: reason);
-    expect( testLimitSize( 'us', ResponsiveScreen.limits['ul'], true,  true, true ), true, reason: reason);
+    expect( testLimitSize( 'us', ResponsiveScreen.limits['us'], true, true, true ), true, reason: reason);
+    expect( testLimitSize( 'us', ResponsiveScreen.limits['xs'], true, true, true ), true, reason: reason);
+    expect( testLimitSize( 'us', ResponsiveScreen.limits['sm'], true, true, true ), true, reason: reason);
+    expect( testLimitSize( 'us', ResponsiveScreen.limits['md'], true, true, true ), true, reason: reason);
+    expect( testLimitSize( 'us', ResponsiveScreen.limits['lg'], true, true, true ), true, reason: reason);
+    expect( testLimitSize( 'us', ResponsiveScreen.limits['xl'], true, true, true ), true, reason: reason);
+    expect( testLimitSize( 'us', ResponsiveScreen.limits['ul'], true, true, true ), true, reason: reason);
 
   });
 

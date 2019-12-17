@@ -247,6 +247,9 @@ class _HomePage extends State<HomePage> {
 }
 ```
 
+### Final result
+![example_9](example/assets/example9.png "Final result")
+
 # How to run the pluggin example
 
 This project is a starting point for a Flutter

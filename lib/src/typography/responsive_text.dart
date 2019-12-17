@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/src/typography/responsive_parser.dart';
 import 'package:flutter_responsive/src/typography/responsive_stylesheet.dart';
+import 'package:html/parser.dart';
 
 import 'responsive_stylesheet.dart';
 
-class ResponsiveText extends StatefulWidget {
+class ResponsiveText extends StatelessWidget {
 
   List<String> allowedElements;
   Map<String, ResponsiveStylesheet> stylesheet;
 
   ResponsiveParser parser;
-  String text;
+  final String text;
 
   final double indentSize = 10.0;
 
@@ -32,74 +33,9 @@ class ResponsiveText extends StatefulWidget {
   final onLinkTap;
 
   ResponsiveText({
-    this.stylesheet,
-    this.text,
-    this.allowedElements,
-    this.onLinkTap,
-    this.shrinkToFit = false,
-    this.renderNewLines = false,
-    this.boxAlign =  Alignment.topLeft,
-    this.boxDecoration,
-    this.onImageError,
-    this.defaultLinkStyle,
-    this.showImages = true,
-    this.padding,
-    this.margin,
-    this.backgroundColor,
-    this.defaultTextStyle
-  }){
-    parser = ResponsiveParser(allowedElements ?? []);
-  }
-
-  @override
-  _ResponsiveText createState() => _ResponsiveText(
-      stylesheet,
-      text,
-      boxAlign,
-      padding,
-      margin,
-      backgroundColor,
-      boxDecoration,
-      defaultTextStyle,
-      defaultLinkStyle,
-      shrinkToFit,
-      renderNewLines,
-      showImages,
-      onImageError,
-      onLinkTap
-  );
-}
-
-class _ResponsiveText extends State<ResponsiveText> {
-
-  List<String> allowedElements;
-  Map<String, ResponsiveStylesheet> stylesheet;
-
-  ResponsiveParser parser;
-  String text;
-
-  final double indentSize = 10.0;
-
-  final Alignment boxAlign;
-  final EdgeInsets padding;
-  final EdgeInsets margin;
-  final Color backgroundColor;
-  final BoxDecoration boxDecoration;
-
-  final TextStyle defaultTextStyle;
-  final TextStyle defaultLinkStyle;
-
-  final bool shrinkToFit;
-  final bool renderNewLines;
-  final bool showImages;
-
-  final ImageErrorListener onImageError;
-
-  final onLinkTap;
-
-  _ResponsiveText(
+      this.text = '',
+      this.allowedElements,
       this.stylesheet,
-      this.text,
       this.boxAlign,
       this.padding,
       this.margin,
@@ -108,11 +44,13 @@ class _ResponsiveText extends State<ResponsiveText> {
       this.defaultTextStyle,
       this.defaultLinkStyle,
       this.shrinkToFit,
-      this.renderNewLines,
+      this.renderNewLines = true,
       this.showImages,
       this.onImageError,
       this.onLinkTap
-  );
+  }){
+    parser = ResponsiveParser(allowedElements ?? []);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,20 +61,20 @@ class _ResponsiveText extends State<ResponsiveText> {
 
     stylesheet.addAll({
       'body' : ResponsiveStylesheet(
-        textStyle: widget.defaultTextStyle ?? TextStyle( color: Colors.black )//DefaultTextStyle.of(context).style
+        textStyle: defaultTextStyle ?? TextStyle( color: Colors.black )//DefaultTextStyle.of(context).style
       )
     });
 
-    RichText parsedText = widget.parser.parseHTML(text, widget.renderNewLines, stylesheet);
+    RichText parsedText = parser.parseHTML(text, renderNewLines, stylesheet);
 
     return
       Container(
-        margin: widget.margin,
-        decoration: widget.boxDecoration,
-        alignment: widget.boxAlign,
-        padding: widget.padding,
-        color: widget.backgroundColor,
-        width: widget.shrinkToFit ? null : double.infinity,
+        margin: margin,
+        decoration: boxDecoration,
+        alignment: boxAlign,
+        padding: padding,
+        color: backgroundColor,
+        width: shrinkToFit ? null : double.infinity,
         child: Wrap(
           children: [ parsedText ],
         ),

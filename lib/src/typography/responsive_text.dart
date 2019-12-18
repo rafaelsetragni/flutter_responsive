@@ -13,7 +13,7 @@ class ResponsiveText extends StatelessWidget {
 
   final double indentSize = 10.0;
 
-  final Alignment boxAlign;
+  final Alignment alignment;
   final EdgeInsets padding;
   final EdgeInsets margin;
   final Color backgroundColor;
@@ -34,7 +34,7 @@ class ResponsiveText extends StatelessWidget {
       {this.text = '',
       List<String> allowedElements = const [],
       Map<String, ResponsiveStylesheet> stylesheet = const {},
-      this.boxAlign,
+      this.alignment,
       this.padding,
       this.margin,
       this.backgroundColor,
@@ -73,7 +73,7 @@ class ResponsiveText extends StatelessWidget {
     return Container(
       margin: margin,
       decoration: boxDecoration,
-      alignment: boxAlign,
+      alignment: alignment,
       padding: padding,
       color: backgroundColor,
       width: display == DisplayStyle.block ? double.infinity : null,

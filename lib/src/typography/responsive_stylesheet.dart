@@ -1,8 +1,18 @@
 import 'package:flutter/cupertino.dart';
 
-enum DisplayStyle { block, inline }
+/// Flutter's responsive configuration similar to display Html property
+enum DisplayStyle {
+  /// Text element should occupy the entire line
+  block,
+  /// Text element should adjust his size to only occupy what it needs
+  inline
+}
 
+/// Stylesheet that contemplates all properties that could be applied to a single text element inside ResponsiveText widget.
+/// [textStyle] Text style to be applied to the text element
+/// [textOverflow] Determines how the text overflow should be handled
 class ResponsiveStylesheet {
+
   TextStyle textStyle;
   TextOverflow textOverflow;
   DisplayStyle displayStyle;
@@ -10,7 +20,7 @@ class ResponsiveStylesheet {
   EdgeInsets padding;
   EdgeInsets margin;
   TextAlign textAlign;
-  Alignment boxAlignment;
+  Alignment alignment;
   double opacity;
   double width;
   double height;
@@ -26,12 +36,13 @@ class ResponsiveStylesheet {
     this.boxDecoration,
     this.opacity = 1.0,
     this.textAlign = TextAlign.left,
-    this.boxAlignment = Alignment.topLeft,
+    this.alignment = Alignment.topLeft,
     this.textIndent = 0,
     this.width,
     this.height,
   });
 
+  /// Merge two EdgeInsets objects, merging empty properties. If both properties are defined, than the new property replaces the old one.
   EdgeInsets mergeEdges(EdgeInsets older, EdgeInsets newer) {
     if (newer == null) return older?.copyWith();
     if (older == null) return newer?.copyWith();
@@ -43,6 +54,8 @@ class ResponsiveStylesheet {
         right: newer.right);
   }
 
+  /// Merge the stylesheet, replacing the actual parameters by the new ones, when they are defined. Otherwise the old property is preserved.
+  /// [mergeBoxProperties] Define if box properties should be merged. Otherwise all box properties receives null values.
   ResponsiveStylesheet merge(ResponsiveStylesheet newStylesheet,
       {bool mergeBoxProperties = false}) {
     if (newStylesheet != null) {
@@ -54,7 +67,7 @@ class ResponsiveStylesheet {
       textStyle?.merge(TextStyle(inherit: true));
       opacity = newStylesheet.opacity ?? opacity;
       textAlign = newStylesheet.textAlign ?? textAlign;
-      boxAlignment = newStylesheet.boxAlignment ?? boxAlignment;
+      alignment = newStylesheet.alignment ?? alignment;
       textIndent = newStylesheet.textIndent ?? textIndent;
       displayStyle = newStylesheet.displayStyle ?? displayStyle;
       textOverflow = newStylesheet.textOverflow ?? textOverflow;
@@ -70,6 +83,7 @@ class ResponsiveStylesheet {
     return this;
   }
 
+  /// Cascade the stylesheet, combining two stylesheets into a new one.
   static ResponsiveStylesheet cascade(
       ResponsiveStylesheet oldStylesheet, ResponsiveStylesheet newStylesheet,
       {bool mergeBoxProperties = false}) {

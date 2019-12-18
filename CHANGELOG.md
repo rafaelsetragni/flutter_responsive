@@ -1,3 +1,7 @@
+## 0.0.3+1
+
+* Starting to use Dartdoc to generate respective documentation about the project Classes
+
 ## 0.0.3
 
 * Sandbox page implemented to test visual properties.

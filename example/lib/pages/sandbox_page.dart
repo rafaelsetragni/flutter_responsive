@@ -35,7 +35,7 @@ class _SandboxPage extends State<SandboxPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-              'Typography', overflow: TextOverflow.ellipsis),
+              'SandBox', overflow: TextOverflow.ellipsis),
         ),
         drawer: Sidebar(),
         body: DefaultTextStyle(
@@ -90,6 +90,7 @@ class _SandboxPage extends State<SandboxPage> {
                   Examples
                   */
                   ResponsiveRow(
+                    alignment: Alignment.topRight,
                     padding: EdgeInsets.only(bottom: 20),
                     children: <Widget>[
 
@@ -120,6 +121,7 @@ class _SandboxPage extends State<SandboxPage> {
                         backgroundColor: hilightColor,
                         display: displayStyle,
                       ),
+
                     ],
                   ),
 

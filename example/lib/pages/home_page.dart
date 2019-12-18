@@ -52,7 +52,7 @@ class _HomePage extends State<HomePage> {
                 margin: EdgeInsets.symmetric(vertical: 10),
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 backgroundColor: Colors.white,
-                widthLimit: mediaQuery.size.width * 0.95,
+                maxWidth: mediaQuery.size.width * 0.95,
                 children: <Widget>[
                   ResponsiveRow(
                     margin: EdgeInsets.symmetric(vertical: 10),

@@ -3,19 +3,18 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'responsive_widget.dart';
 
+/// Responsive container who center his content elements and limits his own widget based on [ResponsiveScreen] limits
 class ResponsiveContainer extends ResponsiveWidget {
-  final double widthLimit;
 
   ResponsiveContainer({
     Key key,
-    this.widthLimit = double.infinity,
     Color backgroundColor,
     List<Widget> children,
     BoxDecoration decoration,
     EdgeInsets padding,
     EdgeInsets margin,
     double width,
-    double maxWidth,
+    double maxWidth = double.infinity,
     double minWidth,
     double height,
     double maxHeight,
@@ -47,7 +46,7 @@ class ResponsiveContainer extends ResponsiveWidget {
       return Align(
         alignment: Alignment.topCenter,
         child: Container(
-          width: getContainerSize(widthLimit, constraints.maxWidth),
+          width: getContainerSize(maxWidth, constraints.maxWidth),
           height: getWidgetHeight(constraints.maxHeight),
           padding: padding,
           margin: margin,

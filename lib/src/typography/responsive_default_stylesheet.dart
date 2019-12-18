@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'responsive_stylesheet.dart';
 import 'responsive_typography.dart';
 
+/// Full default stylesheet, based on styles defined on [ResponsiveTypography]
 final Map<String, ResponsiveStylesheet> defaultStylesheet = {
   'h1': ResponsiveStylesheet(
       textStyle: ResponsiveTypography.h1, displayStyle: DisplayStyle.block),

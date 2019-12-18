@@ -1,3 +1,11 @@
+## 0.0.3+3
+
+* Dartdoc finished for all classes
+
+## 0.0.3+2
+
+* Class ResponsiveStylesheet fully documented using Dartdoc
+
 ## 0.0.3+1
 
 * Starting to use Dartdoc to generate respective documentation about the project Classes

@@ -5,6 +5,8 @@ import 'package:html/parser.dart' as parser;
 
 import 'responsive_default_stylesheet.dart';
 
+
+/// Converts HTML [String] texts into [RichText] objects
 class ResponsiveParser {
   final List<String> _allowedElements = [];
   Map<String, ResponsiveStylesheet> stylesheet;
@@ -90,6 +92,7 @@ class ResponsiveParser {
     return parentSpan;
   }
 
+  /// Parse dom text elements into text widgets
   @visibleForTesting
   InlineSpan parseDomText(dom.Text node, ResponsiveStylesheet lastStyle) {
     List<InlineSpan> children;
@@ -115,6 +118,7 @@ class ResponsiveParser {
     return TextSpan(text: finalText, children: children, style: TextStyle());
   }
 
+  /// Parse dom elements into container widgets
   @visibleForTesting
   InlineSpan parseDomElement(dom.Element node, ResponsiveStylesheet lastStyle) {
     if (_allowedElements.isNotEmpty &&

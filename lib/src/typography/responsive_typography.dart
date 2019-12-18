@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Class containing all the standard Html Styles, based on Bootstrap's web project
 class ResponsiveTypography {
   static int rem = 16;
 

@@ -1,4 +1,8 @@
+
+/// Contains all screen size limits and all functions to test those limits
 class ResponsiveScreen {
+
+  /// Screen width size limits
   static Map<String, double> limits = {
     'us': 0.00,
     // Smart watches
@@ -16,6 +20,7 @@ class ResponsiveScreen {
     // Desktops and TVs 4K
   };
 
+  /// Gets the latest screen limit which contains width size
   static getReferenceSize(double width) {
     String located = limits.keys.first;
     for (String tag in limits.keys) {
@@ -25,6 +30,7 @@ class ResponsiveScreen {
     return located;
   }
 
+  /// Test if screen size limit respects the limit width referenced by tag
   static bool isScreenSize(String tag, double screenSize) {
     return !limits.containsKey(tag)
         ? false

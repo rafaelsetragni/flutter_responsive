@@ -119,7 +119,7 @@ class _TypographyPage extends State<TypographyPage> {
                         allowedElements: allowedElements,
                         margin: EdgeInsets.only(bottom: 40),
                         backgroundColor: hilightColor,
-                        defaultTextStyle: TextStyle(color: Colors.blueGrey),
+                        textStyle: TextStyle(color: Colors.blueGrey),
                         display: displayStyle,
                       ),
 

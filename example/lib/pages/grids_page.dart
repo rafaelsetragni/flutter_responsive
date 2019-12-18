@@ -40,7 +40,7 @@ class _GridPage extends State<GridPage> {
             ResponsiveContainer(
 
               // Determines the container's limit size
-              widthLimit: ResponsiveScreen.limits['lg'],
+              maxWidth: ResponsiveScreen.limits['lg'],
 
               margin: EdgeInsets.symmetric(horizontal: 10),
 

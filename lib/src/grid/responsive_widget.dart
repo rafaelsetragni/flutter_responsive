@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_responsive/src/grid/responsive_screen.dart';
 
+/// Base widget which contains all common responsive behaviours
 abstract class ResponsiveWidget extends StatelessWidget {
   final Alignment alignment;
 

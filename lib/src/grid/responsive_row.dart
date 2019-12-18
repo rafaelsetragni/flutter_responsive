@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'responsive_widget.dart';
 
+/// Responsive row which occupies all line by default and contains 12 columns, used by [ResponsiveCol] as layout reference.
 class ResponsiveRow extends ResponsiveWidget {
+
+  /// number of columns on each line
   final int columns = 12;
 
   ResponsiveRow({

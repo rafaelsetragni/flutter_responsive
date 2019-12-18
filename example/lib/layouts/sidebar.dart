@@ -49,7 +49,7 @@ class Sidebar extends StatelessWidget {
                 children: <Widget>[
                   ResponsiveText(
                     text: 'for <i>Flutter</i>',
-                    defaultTextStyle: TextStyle(color: Colors.white, fontSize: 12),
+                    textStyle: TextStyle(color: Colors.white, fontSize: 12),
                   )
                 ],
               )

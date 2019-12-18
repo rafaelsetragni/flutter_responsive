@@ -4,27 +4,48 @@ import 'package:flutter/cupertino.dart';
 enum DisplayStyle {
   /// Text element should occupy the entire line
   block,
+
   /// Text element should adjust his size to only occupy what it needs
   inline
 }
 
 /// Stylesheet that contemplates all properties that could be applied to a single text element inside ResponsiveText widget.
-/// [textStyle] Text style to be applied to the text element
-/// [textOverflow] Determines how the text overflow should be handled
+/// OBS: Please, be aware about the differences between [TextAlign] and [Alignment] properties before proceed.
 class ResponsiveStylesheet {
-
+  /// Text style to be applied to the text element
   TextStyle textStyle;
+
+  /// Determines how the text overflow should be handled
   TextOverflow textOverflow;
+
+  /// Determines if the text element should occupy all line or not
   DisplayStyle displayStyle;
+
+  /// Box decoration containing configurations such as borders, background color, degrade effects, etc.
   BoxDecoration boxDecoration;
+
+  /// Internal space which separates the box border from the internal elements
   EdgeInsets padding;
+
+  /// External space which separates the box border from the outside elements
   EdgeInsets margin;
+
+  /// Text alignment applied over internal text elements, respecting the vertical text base line.
   TextAlign textAlign;
+
+  /// Alignment of the objects inside the box. The elements aligned does not respect the vertical text base line.
   Alignment alignment;
+
+  /// Determines the opacity of the element and its children
   double opacity;
+
+  /// A fixed box width, which could result in wrap and overflow text
   double width;
+
+  /// A fixed box height, which could result in wrap and overflow text
   double height;
 
+  /// Amount of text indentation to be applied over text element. The indentation is achieved adding a tab character (\t) before first letter´s line.
   int textIndent;
 
   ResponsiveStylesheet({

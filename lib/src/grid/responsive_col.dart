@@ -2,8 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'responsive_widget.dart';
 
+/// Responsive column which change his own width based on parent width
 class ResponsiveCol extends ResponsiveWidget {
+
+  /// List of column sizes for all screen limits defined on [ResponsiveScreen]
   final Map<String, int> gridSizes;
+
+  /// List of column offset sizes for all screen limits defined on [ResponsiveScreen]
   final Map<String, int> gridOffsetSizes;
 
   ResponsiveCol({

@@ -1,3 +1,10 @@
+## 0.0.3
+
+* Sandbox page implemented to test visual properties.
+* Shrink property removed from ResponsiveText due to not be intuitive enough. 
+* Display property adopted as global plugin standard to define if ResponsiveText should occupy all line or not, copying the display Html div property.
+* Case tests to Cascade Stylesheet implemented
+
 ## 0.0.2+2
 
 * Improvements on source to increase Pub Dev score. Also the README file was completed.

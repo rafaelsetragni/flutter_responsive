@@ -9,7 +9,9 @@ class TypographyPage extends StatefulWidget {
 
 class _TypographyPage extends State<TypographyPage> {
 
-  bool highlight, shrink;
+  bool highlight, displayInline;
+  DisplayStyle displayStyle;
+
   List<String> allowedElements = [
     'p',
     'b',
@@ -35,7 +37,8 @@ class _TypographyPage extends State<TypographyPage> {
   @override
   void initState() {
     highlight = false;
-    shrink = false;
+    displayInline = false;
+    displayStyle = DisplayStyle.block;
     super.initState();
   }
 
@@ -82,12 +85,13 @@ class _TypographyPage extends State<TypographyPage> {
                             }
                         ),
                         SwitchListTile(
-                            title: Text('Textbox shrink to fit'),
-                            value: shrink,
+                            title: Text('Textbox displays inline'),
+                            value: displayInline,
                             activeColor: hilightedColor,
                             onChanged: (selected){
                               setState(() {
-                                shrink = selected;
+                                displayInline = selected;
+                                displayStyle = selected ? DisplayStyle.inline : DisplayStyle.block;
                               });
                             }
                         ),
@@ -116,7 +120,7 @@ class _TypographyPage extends State<TypographyPage> {
                         margin: EdgeInsets.only(bottom: 40),
                         backgroundColor: hilightColor,
                         defaultTextStyle: TextStyle(color: Colors.blueGrey),
-                        shrinkToFit: shrink,
+                        display: displayStyle,
                       ),
 
                       ResponsiveText(
@@ -130,7 +134,7 @@ class _TypographyPage extends State<TypographyPage> {
                         margin: EdgeInsets.only(bottom: 40),
                         allowedElements: allowedElements,
                         backgroundColor: hilightColor,
-                        shrinkToFit: shrink,
+                        display: displayStyle,
                       ),
 
                       ResponsiveText(
@@ -139,7 +143,7 @@ class _TypographyPage extends State<TypographyPage> {
                         margin: EdgeInsets.only(bottom: 40),
                         allowedElements: allowedElements,
                         backgroundColor: hilightColor,
-                        shrinkToFit: shrink,
+                        display: displayStyle,
                       ),
                       ResponsiveText(
                         text:
@@ -156,7 +160,7 @@ class _TypographyPage extends State<TypographyPage> {
                         margin: EdgeInsets.only(bottom: 40),
                         allowedElements: allowedElements,
                         backgroundColor: hilightColor,
-                        shrinkToFit: shrink,
+                        display: displayStyle,
                       ),
                       ResponsiveText(
                         boxDecoration: BoxDecoration(
@@ -173,7 +177,7 @@ class _TypographyPage extends State<TypographyPage> {
                           'anim id est laborum.</q><p align="right"><i>Happy Tests</i> - 08 Dez 2019</p>',
                         allowedElements: allowedElements,
                         boxAlign: Alignment.topLeft,
-                        shrinkToFit: shrink,
+                        display: displayStyle,
                       )
 
                     ],

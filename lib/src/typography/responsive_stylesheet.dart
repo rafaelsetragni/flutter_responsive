@@ -32,6 +32,18 @@ class ResponsiveStylesheet {
     this.height,
   });
 
+  EdgeInsets mergeEdges(EdgeInsets older, EdgeInsets newer){
+    if(newer == null) return older?.copyWith();
+    if(older == null) return newer?.copyWith();
+
+    return older.copyWith(
+      bottom: newer.bottom,
+      top: newer.top,
+      left: newer.left,
+      right: newer.right
+    );
+  }
+
   ResponsiveStylesheet merge(ResponsiveStylesheet newStylesheet,
       {bool mergeBoxProperties = false}) {
     if (newStylesheet != null) {
@@ -52,8 +64,8 @@ class ResponsiveStylesheet {
       if (mergeBoxProperties) {
         width = newStylesheet.width ?? width;
         height = newStylesheet.height ?? height;
-        margin = newStylesheet.margin ?? newStylesheet.margin;
-        padding = newStylesheet.padding ?? newStylesheet.padding;
+        margin = mergeEdges( margin,  newStylesheet.margin );
+        padding = mergeEdges( padding,  newStylesheet.padding );
         boxDecoration = newStylesheet.boxDecoration;
       }
     }

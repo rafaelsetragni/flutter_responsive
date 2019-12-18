@@ -76,7 +76,7 @@ class _HomePage extends State<HomePage> {
                       ResponsiveCol(
                         children: [
                           ResponsiveText(
-                            shrinkToFit: true,
+                            display: DisplayStyle.block,
                             padding: EdgeInsets.only(bottom: 20),
                             stylesheet: {
                               'h3': ResponsiveStylesheet(

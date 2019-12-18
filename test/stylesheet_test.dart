@@ -57,9 +57,79 @@ void main() {
     cascadedStylesheet = ResponsiveStylesheet.cascade(originalStylesheet, newerStylesheet);
     expect( cascadedStylesheet.padding, null, reason: businessRule );
 
-    businessRule = 'Padding and margin should merge, replacing older ones and fill thouse which was not setted only on horizontal tree';
-    cascadedStylesheet = ResponsiveStylesheet.cascade(originalStylesheet, newerStylesheet, mergeBoxProperties: true);
+    businessRule = 'Padding should merge, replacing older ones and fill thouse which was not setted only on horizontal tree';
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet(),
+        ResponsiveStylesheet( padding: EdgeInsets.zero ),
+        mergeBoxProperties: true
+    );
     expect( cascadedStylesheet.padding, EdgeInsets.zero, reason: businessRule );
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet( padding: EdgeInsets.all(10) ),
+        ResponsiveStylesheet(),
+        mergeBoxProperties: true
+    );
+    expect( cascadedStylesheet.padding, EdgeInsets.all(10), reason: businessRule );
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet( padding: EdgeInsets.all(10) ),
+        ResponsiveStylesheet( padding: EdgeInsets.zero ),
+        mergeBoxProperties: true
+    );
+    expect( cascadedStylesheet.padding, EdgeInsets.zero, reason: businessRule );
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet( padding: EdgeInsets.zero ),
+        ResponsiveStylesheet( padding: EdgeInsets.all(10) ),
+        mergeBoxProperties: true
+    );
+    expect( cascadedStylesheet.padding, EdgeInsets.all(10), reason: businessRule );
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet( padding: EdgeInsets.symmetric(horizontal: 10) ),
+        ResponsiveStylesheet( padding: EdgeInsets.symmetric(vertical: 10) ),
+        mergeBoxProperties: true
+    );
+    expect( cascadedStylesheet.padding, EdgeInsets.symmetric(vertical: 10), reason: businessRule );
+
+    businessRule = 'Margin should merge, replacing older ones and fill thouse which was not setted only on horizontal tree';
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet(),
+        ResponsiveStylesheet( margin: EdgeInsets.zero ),
+        mergeBoxProperties: true
+    );
+    expect( cascadedStylesheet.margin, EdgeInsets.zero, reason: businessRule );
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet( margin: EdgeInsets.all(10) ),
+        ResponsiveStylesheet(),
+        mergeBoxProperties: true
+    );
+    expect( cascadedStylesheet.margin, EdgeInsets.all(10), reason: businessRule );
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet( margin: EdgeInsets.all(10) ),
+        ResponsiveStylesheet( margin: EdgeInsets.zero ),
+        mergeBoxProperties: true
+    );
+    expect( cascadedStylesheet.margin, EdgeInsets.zero, reason: businessRule );
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet( margin: EdgeInsets.zero ),
+        ResponsiveStylesheet( margin: EdgeInsets.all(10) ),
+        mergeBoxProperties: true
+    );
+    expect( cascadedStylesheet.margin, EdgeInsets.all(10), reason: businessRule );
+
+    cascadedStylesheet = ResponsiveStylesheet.cascade(
+        ResponsiveStylesheet( margin: EdgeInsets.symmetric(horizontal: 10) ),
+        ResponsiveStylesheet( margin: EdgeInsets.symmetric(vertical: 10) ),
+        mergeBoxProperties: true
+    );
+    expect( cascadedStylesheet.margin, EdgeInsets.symmetric(vertical: 10), reason: businessRule );
 
   });
 }

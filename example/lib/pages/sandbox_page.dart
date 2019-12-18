@@ -9,12 +9,14 @@ class SandboxPage extends StatefulWidget {
 
 class _SandboxPage extends State<SandboxPage> {
 
-  bool highlight, shrink;
+  bool highlight, displayInline;
+  DisplayStyle displayStyle;
 
   @override
   void initState() {
     highlight = false;
-    shrink = false;
+    displayInline = false;
+    displayStyle = DisplayStyle.block;
     super.initState();
   }
 
@@ -61,12 +63,13 @@ class _SandboxPage extends State<SandboxPage> {
                             }
                         ),
                         SwitchListTile(
-                            title: Text('Textbox shrink to fit'),
-                            value: shrink,
+                            title: Text('Textbox displays inline'),
+                            value: displayInline,
                             activeColor: hilightedColor,
                             onChanged: (selected){
                               setState(() {
-                                shrink = selected;
+                                displayInline = selected;
+                                displayStyle = selected ? DisplayStyle.inline : DisplayStyle.block;
                               });
                             }
                         ),
@@ -89,15 +92,33 @@ class _SandboxPage extends State<SandboxPage> {
                   ResponsiveRow(
                     padding: EdgeInsets.only(bottom: 20),
                     children: <Widget>[
+
                       ResponsiveText(
                         stylesheet: {
                           'b': ResponsiveStylesheet(
-                            textStyle: TextStyle(fontSize: 30, color: Colors.red)
+                              margin: EdgeInsets.only(left: 10),
+                              textAlign: TextAlign.right,
+                              textStyle: TextStyle( fontSize: 30, color: Colors.white, backgroundColor: Colors.blue )
                           )
                         },
                         text:'R\$ <b>99</b>,00',
-                        margin: EdgeInsets.only(bottom: 40),
-                        shrinkToFit: shrink,
+                        margin: EdgeInsets.all(10.0),
+                        backgroundColor: hilightColor,
+                        display: displayStyle,
+                      ),
+
+                      ResponsiveText(
+                        stylesheet: {
+                          'b': ResponsiveStylesheet(
+                              margin: EdgeInsets.only(left: 10),
+                              textAlign: TextAlign.right,
+                              textStyle: TextStyle( fontSize: 30, color: Colors.white, backgroundColor: Colors.blue )
+                          )
+                        },
+                        text:'R\$ <b>99</b>,00',
+                        margin: EdgeInsets.all(10.0),
+                        backgroundColor: hilightColor,
+                        display: displayStyle,
                       ),
                     ],
                   ),

@@ -22,7 +22,7 @@ class ResponsiveText extends StatelessWidget {
   final TextStyle defaultTextStyle;
   final TextStyle defaultLinkStyle;
 
-  final bool shrinkToFit;
+  final DisplayStyle display;
   final bool renderNewLines;
   final bool showImages;
 
@@ -41,7 +41,7 @@ class ResponsiveText extends StatelessWidget {
       this.boxDecoration,
       this.defaultTextStyle,
       this.defaultLinkStyle,
-      this.shrinkToFit = false,
+      this.display = DisplayStyle.block,
       this.renderNewLines = true,
       this.showImages = false,
       this.onImageError,
@@ -76,7 +76,7 @@ class ResponsiveText extends StatelessWidget {
       alignment: boxAlign,
       padding: padding,
       color: backgroundColor,
-      width: shrinkToFit ? null : double.infinity,
+      width: display == DisplayStyle.block ? double.infinity : null,
       child: Wrap(
         children: [parsedText],
       ),

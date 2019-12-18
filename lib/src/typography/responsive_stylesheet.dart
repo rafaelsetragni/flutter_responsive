@@ -35,9 +35,13 @@ class ResponsiveStylesheet {
   ResponsiveStylesheet merge(ResponsiveStylesheet newStylesheet,
       {bool mergeBoxProperties = false}) {
     if (newStylesheet != null) {
-      textStyle = newStylesheet.textStyle == null
-          ? textStyle
-          : newStylesheet.textStyle.merge(textStyle ?? TextStyle());
+      textStyle = textStyle == null
+          ? newStylesheet.textStyle
+          : (
+          newStylesheet.textStyle == null ? textStyle :
+            textStyle.merge(newStylesheet.textStyle)
+      );
+      textStyle?.merge(TextStyle(inherit: true));
       opacity = newStylesheet.opacity ?? opacity;
       textAlign = newStylesheet.textAlign ?? textAlign;
       boxAlignment = newStylesheet.boxAlignment ?? boxAlignment;
@@ -48,10 +52,8 @@ class ResponsiveStylesheet {
       if (mergeBoxProperties) {
         width = newStylesheet.width ?? width;
         height = newStylesheet.height ?? height;
-        padding = padding?.add(newStylesheet.padding ?? EdgeInsets.zero) ??
-            newStylesheet.padding;
-        margin = margin?.add(newStylesheet.margin ?? EdgeInsets.zero) ??
-            newStylesheet.margin;
+        margin = newStylesheet.margin ?? newStylesheet.margin;
+        padding = newStylesheet.padding ?? newStylesheet.padding;
         boxDecoration = newStylesheet.boxDecoration;
       }
     }

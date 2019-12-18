@@ -12,7 +12,7 @@ void main() {
   }
 
   testWidgets('Tests for check flexible limits', (WidgetTester tester) async {
-    String reason;
+    String businessRule;
 
     ResponsiveScreen.limits = {
       'us': 0.00,
@@ -31,22 +31,22 @@ void main() {
       // desktops and TVs 4K
     };
 
-    reason = 'Ultra small validation should return US';
-    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['us'], 'us', 'us', 'us' ), true, reason: reason );
-    reason = 'Extra small validation should return XS';
-    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['xs'], 'us', 'xs', 'xs' ), true, reason: reason );
-    reason = 'Small validation should return SM';
-    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['sm'], 'xs', 'sm', 'sm' ), true, reason: reason );
-    reason = 'Medium validation should return MD';
-    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['md'], 'sm', 'md', 'md' ), true, reason: reason );
-    reason = 'Large validation should return LG';
-    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['lg'], 'md', 'lg', 'lg' ), true, reason: reason );
-    reason = 'Extra large validation should return XL';
-    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['xl'], 'lg', 'xl', 'xl' ), true, reason: reason );
-    reason = 'Ultra large validation should return UL';
-    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['ul'], 'xl', 'ul', 'ul' ), true, reason: reason );
-    reason = 'Largest than ultra large validation should return UL';
-    expect( testLimitTag( ResponsiveScreen.getReferenceSize, 999999,                       'ul', 'ul', 'ul' ), true, reason: reason );
+    businessRule = 'Ultra small validation should return US';
+    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['us'], 'us', 'us', 'us' ), true, reason: businessRule );
+    businessRule = 'Extra small validation should return XS';
+    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['xs'], 'us', 'xs', 'xs' ), true, reason: businessRule );
+    businessRule = 'Small validation should return SM';
+    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['sm'], 'xs', 'sm', 'sm' ), true, reason: businessRule );
+    businessRule = 'Medium validation should return MD';
+    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['md'], 'sm', 'md', 'md' ), true, reason: businessRule );
+    businessRule = 'Large validation should return LG';
+    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['lg'], 'md', 'lg', 'lg' ), true, reason: businessRule );
+    businessRule = 'Extra large validation should return XL';
+    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['xl'], 'lg', 'xl', 'xl' ), true, reason: businessRule );
+    businessRule = 'Ultra large validation should return UL';
+    expect( testLimitTag( ResponsiveScreen.getReferenceSize, ResponsiveScreen.limits['ul'], 'xl', 'ul', 'ul' ), true, reason: businessRule );
+    businessRule = 'Largest than ultra large validation should return UL';
+    expect( testLimitTag( ResponsiveScreen.getReferenceSize, 999999,                       'ul', 'ul', 'ul' ), true, reason: businessRule );
 
   });
 

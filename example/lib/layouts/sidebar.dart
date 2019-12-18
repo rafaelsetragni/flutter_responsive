@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_responsive_example/pages/grids_page.dart';
 import 'package:flutter_responsive_example/pages/grids_performance.dart';
 import 'package:flutter_responsive_example/pages/home_page.dart';
+import 'package:flutter_responsive_example/pages/sandbox_page.dart';
 import 'package:flutter_responsive_example/pages/typography_page.dart';
 import 'package:flutter_responsive_example/pages/typography_performance.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -121,6 +122,15 @@ class Sidebar extends StatelessWidget {
                 },
               )
             ],
+          ),
+          ListTile(
+            contentPadding: EdgeInsets.only(left: 15, right: 20),
+            title: Text('Sandbox'),
+            trailing: Icon(FontAwesomeIcons.fortAwesome),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.push(context, MaterialPageRoute( builder: (BuildContext context) => SandboxPage() ));
+            },
           ),
         ],
       ),

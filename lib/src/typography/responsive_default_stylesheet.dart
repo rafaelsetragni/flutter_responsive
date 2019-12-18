@@ -23,7 +23,8 @@ final Map<String, ResponsiveStylesheet> defaultStylesheet = {
           TextStyle(color: Colors.white, fontSize: 12, fontFamily: 'monospace'),
       padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 2.0),
       boxDecoration: BoxDecoration(color: Colors.grey)),
-  'center': ResponsiveStylesheet(textAlign: TextAlign.center),
+  'center': ResponsiveStylesheet(
+      textAlign: TextAlign.center, alignment: Alignment.center),
   'mute': ResponsiveStylesheet(opacity: 0.5),
   'u': ResponsiveStylesheet(
       textStyle: TextStyle(

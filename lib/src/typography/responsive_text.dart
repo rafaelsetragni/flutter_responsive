@@ -6,12 +6,14 @@ import 'responsive_stylesheet.dart';
 
 /// Transform Html text [String] into [RichText] object, combining dom elements with their respective [ResponsiveStylesheet]
 class ResponsiveText extends StatelessWidget {
-
   /// List containing all the html elements allowed (Recommended to use due to security issues that could rise with filled with user's input)
   final List<String> allowedElements = [];
 
   /// List of [ResponsiveStylesheet] to be applied on each dom tree node
   final Map<String, ResponsiveStylesheet> stylesheet = {};
+
+  /// List of all [Widget] objects to be replaced over HTML tags
+  final Map<String, Widget> widgetNodes = {};
 
   /// Parser responsible to convert Html string text into [RichText] object
   final ResponsiveParser parser = ResponsiveParser();
@@ -46,10 +48,11 @@ class ResponsiveText extends StatelessWidget {
   /// Determines if the new line characters (\n) should be converted to <br> dom nodes
   final bool renderNewLines;
 
-  ResponsiveText({
-      this.text = '',
+  ResponsiveText(
+      {this.text = '',
       List<String> allowedElements = const [],
       Map<String, ResponsiveStylesheet> stylesheet = const {},
+      Map<String, Widget> widgetNodes = const {},
       this.alignment,
       this.padding,
       this.margin,
@@ -57,14 +60,21 @@ class ResponsiveText extends StatelessWidget {
       this.boxDecoration,
       this.textStyle,
       this.display = DisplayStyle.block,
-      this.renderNewLines = true
-  }){
+      this.renderNewLines = true}) {
     if (allowedElements.isNotEmpty) {
       this.allowedElements.clear();
       this.allowedElements.addAll(allowedElements);
 
       parser.allowedElements = allowedElements;
     }
+
+    if (widgetNodes.isNotEmpty) {
+      this.widgetNodes.clear();
+      this.widgetNodes.addAll(widgetNodes);
+
+      parser.widgetNodes = widgetNodes;
+    }
+
     if (stylesheet.isNotEmpty) {
       this.stylesheet.clear();
       this.stylesheet.addAll(stylesheet);
@@ -81,7 +91,8 @@ class ResponsiveText extends StatelessWidget {
           )
     });
 
-    RichText parsedText = parser.parseHTML(text, renderNewLines, stylesheet);
+    RichText parsedText =
+        parser.parseHTML(text, renderNewLines, stylesheet, widgetNodes);
 
     return Container(
       margin: margin,

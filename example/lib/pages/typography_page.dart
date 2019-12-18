@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:flutter_responsive_example/layouts/sidebar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TypographyPage extends StatefulWidget {
   @override
@@ -32,6 +33,7 @@ class _TypographyPage extends State<TypographyPage> {
     'img',
     'pre',
     'code',
+    'widget'
   ];
 
   @override
@@ -44,6 +46,8 @@ class _TypographyPage extends State<TypographyPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    MediaQueryData mediaQuery = MediaQuery.of(context);
 
     Color
       hilightedColor = Colors.yellowAccent,
@@ -114,12 +118,13 @@ class _TypographyPage extends State<TypographyPage> {
                   ResponsiveRow(
                     padding: EdgeInsets.only(bottom: 20),
                     children: <Widget>[
+
                       ResponsiveText(
-                        text:'<h6>h6. Responsive heading</h6>',
+                        text:'<h6>h6. Colored heading</h6>',
                         allowedElements: allowedElements,
                         margin: EdgeInsets.only(bottom: 40),
                         backgroundColor: hilightColor,
-                        textStyle: TextStyle(color: Colors.blueGrey),
+                        textStyle: TextStyle(color: Colors.blueGrey, fontStyle: FontStyle.italic),
                         display: displayStyle,
                       ),
 
@@ -131,9 +136,34 @@ class _TypographyPage extends State<TypographyPage> {
                         '<h4>h4. Responsive heading</h4>'
                         '<h5>h5. Responsive heading</h5>'
                         '<h6>h6. Responsive heading</h6>',
-                        margin: EdgeInsets.only(bottom: 40),
+                        margin: EdgeInsets.only(bottom: 20),
                         allowedElements: allowedElements,
                         backgroundColor: hilightColor,
+                        display: displayStyle,
+                      ),
+
+                      ResponsiveText(
+                        stylesheet: {
+                          'p' : ResponsiveStylesheet( alignment: Alignment.center )
+                        },
+                        widgetNodes: {
+                          'rebel_aliance': Icon(FontAwesomeIcons.rebel, color: Colors.red),
+                          'back_to_90s': Image.network(
+                            'http://vanishingpointchronicles.com/wp-content/uploads/2013/07/TMNT.jpg',
+                            width: mediaQuery.size.width * 0.8,
+                          )
+                        },
+                        text:
+                        '<center>'
+                            '<widget>rebel_aliance</widget> Text with widget <widget>rebel_aliance</widget>'
+                            '\n\n'
+                            '<widget>back_to_90s</widget>'
+                            '<p>It´s pizza time!</p>'
+                        '</center>',
+                        margin: EdgeInsets.only(bottom: 20),
+                        backgroundColor: hilightColor,
+                        textStyle: TextStyle(fontSize: 16, color: Colors.black),
+                        renderNewLines: true,
                         display: displayStyle,
                       ),
 

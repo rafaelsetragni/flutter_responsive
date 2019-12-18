@@ -5,11 +5,11 @@ import 'package:html/parser.dart' as parser;
 
 import 'responsive_default_stylesheet.dart';
 
-
 /// Converts HTML [String] texts into [RichText] objects
 class ResponsiveParser {
   final List<String> _allowedElements = [];
   Map<String, ResponsiveStylesheet> stylesheet;
+  Map<String, Widget> widgetNodes;
 
   set allowedElements(List<String> list) {
     _allowedElements.clear();
@@ -58,9 +58,13 @@ class ResponsiveParser {
   }
 
   /// PARSE HTML CODE INTO RICH TEXT WIDGET
-  RichText parseHTML(String html, bool renderNewLines,
-      Map<String, ResponsiveStylesheet> customStylesheet) {
+  RichText parseHTML(
+      String html,
+      bool renderNewLines,
+      Map<String, ResponsiveStylesheet> customStylesheet,
+      Map<String, Widget> widgetNodes) {
     stylesheet = customStylesheet;
+    this.widgetNodes = widgetNodes;
 
     String data = replaceBreakLines(html, renderNewLines);
     dom.Node domBody = extractBodyContent(data);
@@ -100,11 +104,23 @@ class ResponsiveParser {
     String finalText = node.text;
     if (finalText == null || finalText.trim().isEmpty) return null;
 
+    InlineSpan returnedSpan;
+
     if (node.parent is dom.Element) {
       // Special content characteristics
       switch (node.parent.localName) {
         case "q":
           finalText = '"' + finalText + '"';
+          break;
+
+        case "widget":
+          if (widgetNodes.containsKey(finalText)) {
+            Widget widget = widgetNodes[finalText];
+
+            if (widget != null) {
+              returnedSpan = WidgetSpan(child: widget);
+            }
+          }
           break;
       }
     }
@@ -115,7 +131,8 @@ class ResponsiveParser {
       });
     }
 
-    return TextSpan(text: finalText, children: children, style: TextStyle());
+    return returnedSpan ??
+        TextSpan(text: finalText, children: children, style: TextStyle());
   }
 
   /// Parse dom elements into container widgets

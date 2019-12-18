@@ -1,3 +1,8 @@
+
+## 0.0.4
+
+* Added widget's HTML tag, to allow developers to include any Flutter's widget inside the text.
+
 ## 0.0.3+3
 
 * Dartdoc finished for all classes

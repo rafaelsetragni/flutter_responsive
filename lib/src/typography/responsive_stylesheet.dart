@@ -48,6 +48,12 @@ class ResponsiveStylesheet {
   /// Amount of text indentation to be applied over text element. The indentation is achieved adding a tab character (\t) before first letter´s line.
   int textIndent;
 
+  /// Defines box border radius to the element
+  BorderRadius borderRadius;
+
+  /// Line alignment
+  PlaceholderAlignment placeholderAlignment;
+
   ResponsiveStylesheet({
     this.padding,
     this.margin,
@@ -56,8 +62,10 @@ class ResponsiveStylesheet {
     this.displayStyle = DisplayStyle.inline,
     this.boxDecoration,
     this.opacity = 1.0,
-    this.textAlign = TextAlign.left,
-    this.alignment = Alignment.topLeft,
+    this.textAlign,// = TextAlign.left,
+    this.alignment,// = Alignment.topLeft,
+    this.placeholderAlignment,
+    this.borderRadius,
     this.textIndent = 0,
     this.width,
     this.height,
@@ -89,6 +97,7 @@ class ResponsiveStylesheet {
       opacity = newStylesheet.opacity ?? opacity;
       textAlign = newStylesheet.textAlign ?? textAlign;
       alignment = newStylesheet.alignment ?? alignment;
+      placeholderAlignment = newStylesheet.placeholderAlignment ?? placeholderAlignment;
       textIndent = newStylesheet.textIndent ?? textIndent;
       displayStyle = newStylesheet.displayStyle ?? displayStyle;
       textOverflow = newStylesheet.textOverflow ?? textOverflow;
@@ -98,7 +107,8 @@ class ResponsiveStylesheet {
         height = newStylesheet.height ?? height;
         margin = mergeEdges(margin, newStylesheet.margin);
         padding = mergeEdges(padding, newStylesheet.padding);
-        boxDecoration = newStylesheet.boxDecoration;
+        boxDecoration = newStylesheet.boxDecoration ?? boxDecoration;
+        borderRadius = newStylesheet.borderRadius ?? borderRadius;
       }
     }
     return this;

@@ -149,7 +149,9 @@ class _TypographyPage extends State<TypographyPage> {
 
                       ResponsiveText(
                         stylesheet: {
-                          'p' : ResponsiveStylesheet( alignment: Alignment.center )
+                          'rebel_aliance': ResponsiveStylesheet( margin: EdgeInsets.symmetric(horizontal: 5.0) ),
+                          'back_to_90s': ResponsiveStylesheet( borderRadius: BorderRadius.all(Radius.circular(30.0)) ),
+                          'p': ResponsiveStylesheet( boxDecoration: BoxDecoration(color: Colors.red) )
                         },
                         widgetNodes: {
                           'rebel_aliance': Icon(FontAwesomeIcons.rebel, color: Colors.red),
@@ -164,12 +166,12 @@ class _TypographyPage extends State<TypographyPage> {
                           )
                         },
                         text:
-                        '<center>'
-                            '<widget>rebel_aliance</widget> Text with widget <widget>rebel_aliance</widget>'
-                            '\n\n'
-                            '<widget>back_to_90s</widget>'
-                            '<p>It´s pizza time!</p>'
-                        '</center>',
+                          '<center>'
+                              '<rebel_aliance type="widget"></rebel_aliance> Text with widget <rebel_aliance type="widget"></rebel_aliance>'
+                              '\n\n'
+                              '<back_to_90s type="widget"></back_to_90s>'
+                              '<p>It´s pizza time!</p>'
+                          '</center>',
                         margin: EdgeInsets.only(bottom: 20),
                         backgroundColor: hilightColor,
                         textStyle: TextStyle(fontSize: 16, color: Colors.black),

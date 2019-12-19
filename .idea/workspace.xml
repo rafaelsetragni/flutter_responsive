@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9ca9be8-ef83-42b3-9646-f328f611d9a3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/assets/example7.png" beforeDir="false" afterPath="$PROJECT_DIR$/example/assets/example7.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/pages/typography_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/pages/typography_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/typography/responsive_default_stylesheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/typography/responsive_default_stylesheet.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/typography/responsive_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/typography/responsive_parser.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/typography/responsive_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/typography/responsive_text.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -30,21 +27,9 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_26" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5_2" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/src/grid/responsive_widget.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/grid/responsive_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
@@ -57,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/lib/pages/grids_page.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1836">
-              <caret column="39" selection-start-column="39" selection-end-column="39" />
+            <state>
+              <caret column="39" selection-end-line="368" />
             </state>
           </provider>
         </entry>
@@ -66,20 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_text.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="105" column="8" lean-forward="true" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+            <state relative-caret-position="728">
+              <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -90,7 +63,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_default_stylesheet.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
+            <state relative-caret-position="286">
               <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -100,40 +73,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/lib/pages/typography_page.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="138" column="57" selection-start-line="138" selection-start-column="57" selection-end-line="138" selection-end-column="57" />
+            <state relative-caret-position="476">
+              <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="59" />
               <folding>
-                <element signature="e#1#40#0" expanded="true" />
+                <element signature="e#0#52#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+        <entry file="file://$PROJECT_DIR$/example/lib/layouts/sidebar.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            <state relative-caret-position="320">
+              <caret line="110" column="18" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+        <entry file="file://$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_stylesheet.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-912">
-              <caret line="20" column="66" selection-start-line="19" selection-end-line="20" selection-end-column="66" />
+            <state relative-caret-position="153">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/example/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/flutter_responsive.dart" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
         <option value="$PROJECT_DIR$/example/lib/pages/grids_performance.dart" />
@@ -185,9 +172,11 @@
         <option value="$PROJECT_DIR$/lib/src/typography/responsive_parser.dart" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/lib/src/typography/responsive_default_stylesheet.dart" />
-        <option value="$PROJECT_DIR$/example/lib/pages/typography_page.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart" />
+        <option value="$PROJECT_DIR$/example/lib/pages/typography_page.dart" />
+        <option value="$PROJECT_DIR$/example/pubspec.yaml" />
       </list>
     </option>
   </component>
@@ -203,7 +192,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -220,7 +209,20 @@
               <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
               <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
@@ -263,15 +265,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../extended_image" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -376,9 +377,17 @@
       <configuration name="Padding and margin cascade tests" configurationId="FlutterTestConfigType" />
     </history-entry>
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5024233" side_tool="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" />
@@ -387,25 +396,26 @@
       <window_info id="Resources Explorer" order="4" />
       <window_info id="Build Variants" order="5" side_tool="true" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.49757674" visible="true" weight="0.19029851" />
+      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.49757674" visible="true" weight="0.19157393" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.32936078" />
-      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="TODO" order="1" weight="0.32936078" />
       <window_info anchor="bottom" id="Logcat" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.30769232" />
-      <window_info anchor="bottom" id="Terminal" order="5" visible="true" weight="0.3033586" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.30877572" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.3033586" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="9" weight="0.32936078" />
       <window_info anchor="bottom" id="Find" order="10" />
+      <window_info anchor="right" id="Assistant" weight="0.3326709" />
       <window_info anchor="right" id="Theme Preview" order="0" />
       <window_info anchor="right" id="Flutter Inspector" order="1" />
       <window_info anchor="right" id="Flutter Outline" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Flutter Performance" order="5" visible="true" weight="0.21481876" />
+      <window_info anchor="right" id="Flutter Performance" order="5" weight="0.21481876" />
       <window_info anchor="right" id="Device File Explorer" order="6" side_tool="true" />
     </layout>
   </component>
@@ -445,13 +455,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/flutter_responsive_test.dart" />
     <entry file="file://$PROJECT_DIR$/lib/src/grid/grid_sizes.dart" />
-    <entry file="file://$PROJECT_DIR$/../flutter_bootstrap/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="242" column="1" selection-start-line="3" selection-end-line="242" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../flutter_bootstrap/README.md" />
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -510,13 +514,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.2.11/lib/src/frontend/expect.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.2.11/lib/src/frontend/expect.dart" />
     <entry file="file://D:/flutter/packages/flutter_test/lib/src/binding.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -530,16 +528,6 @@
           <caret line="131" column="37" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/layouts/sidebar.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="111" column="96" selection-start-line="111" selection-start-column="96" selection-end-line="111" selection-end-column="96" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -619,16 +607,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/grid/responsive_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/grid/responsive_widget.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="238">
           <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
@@ -638,49 +619,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_stylesheet.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-912">
+        <state relative-caret-position="17">
           <caret line="20" column="66" selection-start-line="19" selection-end-line="20" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/pages/grids_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1836">
-          <caret column="39" selection-start-column="39" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_default_stylesheet.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/pages/typography_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="138" column="57" selection-start-line="138" selection-start-column="57" selection-end-line="138" selection-end-column="57" />
-          <folding>
-            <element signature="e#1#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -691,23 +631,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-476">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/pages/grids_page.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="39" selection-end-line="368" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_text.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="105" column="8" lean-forward="true" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
+        <state relative-caret-position="728">
+          <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_default_stylesheet.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        <state relative-caret-position="286">
+          <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/grid/responsive_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/layouts/sidebar.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="110" column="18" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/pages/typography_page.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
         </state>
       </provider>
     </entry>

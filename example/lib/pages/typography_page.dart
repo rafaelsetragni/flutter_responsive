@@ -1,7 +1,10 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
+import 'package:flutter_responsive_example/layouts/fullscreen_image.dart';
 import 'package:flutter_responsive_example/layouts/sidebar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 class TypographyPage extends StatefulWidget {
   @override
@@ -57,6 +60,8 @@ class _TypographyPage extends State<TypographyPage> {
       inherit: true,
       color: Colors.black
     );
+
+    ImageProvider turtleImage = AssetImage('assets/TMNT.jpg');
 
     return Scaffold(
         appBar: AppBar(
@@ -148,9 +153,14 @@ class _TypographyPage extends State<TypographyPage> {
                         },
                         widgetNodes: {
                           'rebel_aliance': Icon(FontAwesomeIcons.rebel, color: Colors.red),
-                          'back_to_90s': Image.network(
-                            'http://vanishingpointchronicles.com/wp-content/uploads/2013/07/TMNT.jpg',
-                            width: mediaQuery.size.width * 0.8,
+                          'back_to_90s': InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute( builder: (BuildContext context) => FullscreenImageView(turtleImage) ));
+                            },
+                            child: Image(
+                              image: turtleImage,
+                              width: mediaQuery.size.width * 0.9,
+                            )
                           )
                         },
                         text:

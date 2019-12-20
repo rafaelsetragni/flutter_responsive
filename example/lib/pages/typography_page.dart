@@ -149,7 +149,7 @@ class _TypographyPage extends State<TypographyPage> {
 
                       ResponsiveText(
                         stylesheet: {
-                          'rebel_aliance': ResponsiveStylesheet( margin: EdgeInsets.symmetric(horizontal: 5.0) ),
+                          'rebel_aliance': ResponsiveStylesheet( margin: EdgeInsets.symmetric(horizontal: 5.0), boxDecoration: BoxDecoration(color: Colors.blueGrey) ),
                           'back_to_90s': ResponsiveStylesheet( borderRadius: BorderRadius.all(Radius.circular(30.0)) ),
                           'p': ResponsiveStylesheet( boxDecoration: BoxDecoration(color: Colors.red) )
                         },

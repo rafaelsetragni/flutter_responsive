@@ -10,7 +10,7 @@ import 'package:flutter_responsive/src/parser/jsx_node_element.dart';
 class ResponsiveParser {
   final List<String> _allowedElements = [];
   Map<String, ResponsiveStylesheet> stylesheet;
-  Map<String, Widget> widgetNodes;
+  Map<String, Widget> widgets;
 
   set allowedElements(List<String> list) {
     _allowedElements.clear();
@@ -19,9 +19,8 @@ class ResponsiveParser {
 
   /// GET RESPECTIVE NODE STYLESHEET
   @visibleForTesting
-  ResponsiveStylesheet getStylesheet(JSXNodeElement element) {
+  ResponsiveStylesheet getStylesheet(String tag) {
     ResponsiveStylesheet finderStylesheet;
-    String tag = element.localName;
 
     // TODO Match could be improve to use the same CSS Web rules. Now is working only for equal elements
     if (tag != null &&
@@ -59,13 +58,15 @@ class ResponsiveParser {
   }
 
   /// PARSE HTML CODE INTO RICH TEXT WIDGET
-  RichText parseHTML(
+  RichText parseJSX({
+      @required
       String html,
-      bool renderNewLines,
-      Map<String, ResponsiveStylesheet> customStylesheet,
-      Map<String, Widget> widgetNodes) {
+      bool renderNewLines = false,
+      Map<String, ResponsiveStylesheet> customStylesheet = const {},
+      Map<String, Widget> widgets = const {}
+  }) {
     stylesheet = customStylesheet;
-    this.widgetNodes = widgetNodes;
+    this.widgets = widgets;
 
     String data = replaceBreakLines(html, renderNewLines);
     JSXNodeElement domBody = extractBodyContent(data);
@@ -76,9 +77,7 @@ class ResponsiveParser {
     }
 
     return RichText(
-      text: TextSpan(
-          style: customStylesheet['body'].textStyle,
-          children: [spanBody ?? TextSpan(text: '')]),
+      text: spanBody ?? TextSpan( text: '' ),
     );
   }
 
@@ -103,7 +102,6 @@ class ResponsiveParser {
   /// Parse dom text elements into text widgets
   @visibleForTesting
   InlineSpan parseDomText(JSXNodeText node, ResponsiveStylesheet lastStyle) {
-    List<InlineSpan> children;
 
     String finalText = node.text;
     if (finalText == null || finalText.trim().isEmpty) return null;
@@ -119,7 +117,7 @@ class ResponsiveParser {
       }
     }
 
-    TextStyle style = lastStyle.textStyle ?? TextStyle();
+    TextStyle style = lastStyle?.textStyle;// ?? TextStyle();
 
     return returnedSpan ??
         TextSpan( text: finalText, style: style );
@@ -128,6 +126,7 @@ class ResponsiveParser {
   /// Parse dom elements into container widgets
   @visibleForTesting
   InlineSpan parseDomElement(JSXNodeElement node, ResponsiveStylesheet lastStyle) {
+
     if (_allowedElements.isNotEmpty &&
         node.localName != 'body' &&
         !_allowedElements.contains(node.localName)) {
@@ -135,7 +134,7 @@ class ResponsiveParser {
     }
 
     List<InlineSpan> myChildren = [];
-    ResponsiveStylesheet localStylesheet = getStylesheet(node),
+    ResponsiveStylesheet localStylesheet = getStylesheet(node.localName),
         // Box properties and positional attributes should not cascade to children
         childStylesheet = localStylesheet == null
             ? lastStyle
@@ -161,13 +160,16 @@ class ResponsiveParser {
         break;
 
       case 'p':
-        myChildren = [TextSpan(text: '\t' * (lastStyle?.textIndent ?? 0))]
-          ..addAll(myChildren);
+        int indentAmout = lastStyle?.textIndent ?? 0;
+        if(indentAmout > 0){
+          myChildren = [TextSpan(text: '\t' * indentAmout)]
+            ..addAll(myChildren);
+        }
         break;
     }
 
-    if (widgetNodes.containsKey(node.localName)) {
-      Widget widget = widgetNodes[node.localName];
+    if (widgets.containsKey(node.localName)) {
+      Widget widget = widgets[node.localName];
 
       if (widget != null) {
         myChildren = [WidgetSpan(child: widget)]..addAll(myChildren);
@@ -232,11 +234,12 @@ class ResponsiveParser {
   InlineSpan getSpanElement(JSXNodeElement element, List<InlineSpan> children,
       ResponsiveStylesheet lastStyle) {
 
-    InlineSpan span = TextSpan(
-        text: '',
-        style: lastStyle?.textStyle ?? TextStyle(),
-        children: children
-    );
+    InlineSpan span =
+      children.length == 1 ? children[0] :
+      TextSpan(
+          style: lastStyle?.textStyle ?? TextStyle(),
+          children: children
+      );
 
     ResponsiveStylesheet localStylesheet =
         applyHtmlAttributes(element, lastStyle);

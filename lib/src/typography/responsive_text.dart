@@ -72,7 +72,7 @@ class ResponsiveText extends StatelessWidget {
       this.widgetNodes.clear();
       this.widgetNodes.addAll(widgetNodes);
 
-      parser.widgetNodes = widgetNodes;
+      parser.widgets = widgetNodes;
     }
 
     if (stylesheet.isNotEmpty) {
@@ -92,7 +92,7 @@ class ResponsiveText extends StatelessWidget {
     });
 
     RichText parsedText =
-        parser.parseHTML(text, renderNewLines, stylesheet, widgetNodes);
+        parser.parseJSX(html: text, renderNewLines: renderNewLines, customStylesheet: stylesheet, widgets: widgetNodes);
 
     return Container(
       margin: margin,

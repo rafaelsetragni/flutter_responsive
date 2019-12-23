@@ -8,95 +8,168 @@ void main() {
 
   String businessRule;
 
-  testWidgets('Regex parser test', (WidgetTester tester) async {
+  testWidgets('Extract html elements test', (WidgetTester tester) async {
 
-    RegExpMatch match;
-    List<String> parameters;
-    String beforeText, tagName, attributes, closingTag, selfEnclosing;
+    String testText;
+    List<String> matches;
 
+    businessRule = 'Regex parser to identify html elements do not work as expected';
 
-    match = JSXParser.regExpHtml.firstMatch('pre-text\\<a\\\\\\\\\\\\\\\\\\\<aaa<div class="TbwUpd" align=\'\'><cite class="iUh30 bc"><i/>https://github.com › dart-lang › html › blob › master › lib › parser</cite></div>');
+    testText = 'Aenean laci\\<nia bibendum <a test href=\'/l<>ife\'>life</a> sed consectetur. <a href="/work">Work</a> quis risus eget urna mollis<></> ornare <w/> <a href="/about">about</a> leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
 
-    businessRule = 'Regex parser do not work as expected';
-    parameters = JSXParser.getParseParameters(match);
+    expect(matches[0], 'Aenean laci\\<nia bibendum <a test href=\'/l<>ife\'>', reason: businessRule);
+    expect(matches[1], 'Aenean laci\\<nia bibendum ', reason: businessRule);
+    expect(matches[2], '<', reason: businessRule);
+    expect(matches[3], '', reason: businessRule);
+    expect(matches[4], 'a', reason: businessRule);
+    expect(matches[5], ' test href=\'/l<>ife\'', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
 
-    beforeText = parameters[0];
-    closingTag = parameters[1];
-    tagName    = parameters[2];
-    attributes = parameters[3];
-    selfEnclosing = parameters[4];
+    testText = 'life</a> sed consectetur. <a href="/work">Work</a> quis risus eget urna mollis<></> ornare <w/> <a href="/about">about</a> leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
 
-    expect(beforeText,    'pre-text\\<a\\\\\\\\\\\\\\\\\\\<aaa', reason: businessRule);
-    expect(selfEnclosing, '', reason: businessRule);
-    expect(closingTag,    '', reason: businessRule);
-    expect(tagName,       'div', reason: businessRule);
-    expect(attributes,    ' class="TbwUpd" align=\'\'', reason: businessRule);
+    expect(matches[0], 'life</a>', reason: businessRule);
+    expect(matches[1], 'life', reason: businessRule);
+    expect(matches[2], '<', reason: businessRule);
+    expect(matches[3], '/', reason: businessRule);
+    expect(matches[4], 'a', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
 
-    match = JSXParser.regExpHtml.firstMatch('text');
-    parameters = JSXParser.getParseParameters(match);
+    testText = ' sed consectetur. <a href="/work">Work</a> quis risus eget urna mollis<></> ornare <w/> <a href="/about">about</a> leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
 
-    beforeText = parameters[0];
-    closingTag = parameters[1];
-    tagName    = parameters[2];
-    attributes = parameters[3];
-    selfEnclosing = parameters[4];
+    expect(matches[0], ' sed consectetur. <a href="/work">', reason: businessRule);
+    expect(matches[1], ' sed consectetur. ', reason: businessRule);
+    expect(matches[2], '<', reason: businessRule);
+    expect(matches[3], '', reason: businessRule);
+    expect(matches[4], 'a', reason: businessRule);
+    expect(matches[5], ' href="/work"', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
 
-    expect(beforeText, 'text', reason: businessRule);
+    testText = 'Work</a> quis risus eget urna mollis<></> ornare <w/> <a href="/about">about</a> leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
 
-    match = JSXParser.regExpHtml.firstMatch('<br>');
-    parameters = JSXParser.getParseParameters(match);
+    expect(matches[0], 'Work</a>', reason: businessRule);
+    expect(matches[1], 'Work', reason: businessRule);
+    expect(matches[2], '<', reason: businessRule);
+    expect(matches[3], '/', reason: businessRule);
+    expect(matches[4], 'a', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
 
-    beforeText = parameters[0];
-    closingTag = parameters[1];
-    tagName    = parameters[2];
-    attributes = parameters[3];
-    selfEnclosing = parameters[4];
-    expect(tagName, 'br', reason: businessRule);
+    testText = ' quis risus eget urna mollis<></> ornare <w/> <a href="/about">about</a> leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
 
-    match = JSXParser.regExpHtml.firstMatch('<br/>');
-    parameters = JSXParser.getParseParameters(match);
+    expect(matches[0], ' quis risus eget urna mollis<>', reason: businessRule);
+    expect(matches[1], ' quis risus eget urna mollis', reason: businessRule);
+    expect(matches[2], '<', reason: businessRule);
+    expect(matches[3], '', reason: businessRule);
+    expect(matches[4], '', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
 
-    beforeText = parameters[0];
-    closingTag = parameters[1];
-    tagName    = parameters[2];
-    attributes = parameters[3];
-    selfEnclosing = parameters[4];
-    expect(tagName, 'br', reason: businessRule);
+    testText = '</> ornare <w/> <a href="/about">about</a> leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
 
-    match = JSXParser.regExpHtml.firstMatch('<br />');
-    parameters = JSXParser.getParseParameters(match);
+    expect(matches[0], '</>', reason: businessRule);
+    expect(matches[1], '', reason: businessRule);
+    expect(matches[2], '<', reason: businessRule);
+    expect(matches[3], '/', reason: businessRule);
+    expect(matches[4], '', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
 
-    beforeText = parameters[0];
-    closingTag = parameters[1];
-    tagName    = parameters[2];
-    attributes = parameters[3];
-    selfEnclosing = parameters[4];
-    expect(tagName, 'br', reason: businessRule);
-    expect(selfEnclosing, '/', reason: businessRule);
+    testText = ' ornare <w/> <a href="/about">about</a> leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
 
-    match = JSXParser.regExpHtml.firstMatch('<p>teste</p>');
-    parameters = JSXParser.getParseParameters(match);
+    expect(matches[0], ' ornare <w/>', reason: businessRule);
+    expect(matches[1], ' ornare ', reason: businessRule);
+    expect(matches[2], '<', reason: businessRule);
+    expect(matches[3], '', reason: businessRule);
+    expect(matches[4], 'w', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '/', reason: businessRule);
 
-    beforeText = parameters[0];
-    closingTag = parameters[1];
-    tagName    = parameters[2];
-    attributes = parameters[3];
-    selfEnclosing = parameters[4];
-    expect(closingTag, '', reason: businessRule);
-    expect(tagName, 'p', reason: businessRule);
+    testText = ' <a href="/about">about</a> leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
 
-    match = JSXParser.regExpHtml.firstMatch('test</div>');
-    parameters = JSXParser.getParseParameters(match);
+    expect(matches[0], ' <a href="/about">', reason: businessRule);
+    expect(matches[1], ' ', reason: businessRule);
+    expect(matches[2], '<', reason: businessRule);
+    expect(matches[3], '', reason: businessRule);
+    expect(matches[4], 'a', reason: businessRule);
+    expect(matches[5], ' href="/about"', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
 
-    beforeText = parameters[0];
-    closingTag = parameters[1];
-    tagName    = parameters[2];
-    attributes = parameters[3];
-    selfEnclosing = parameters[4];
-    expect(beforeText, 'test', reason: businessRule);
-    expect(closingTag, '/', reason: businessRule);
-    expect(tagName, 'div', reason: businessRule);
+    testText = 'about</a> leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
 
+    expect(matches[0], 'about</a>', reason: businessRule);
+    expect(matches[1], 'about', reason: businessRule);
+    expect(matches[2], '<', reason: businessRule);
+    expect(matches[3], '/', reason: businessRule);
+    expect(matches[4], 'a', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
+
+    testText = ' leo.';
+    matches = JSXParser.getFirstHtmlElements(testText);
+
+    expect(matches[0], ' leo.', reason: businessRule);
+    expect(matches[1], ' leo.', reason: businessRule);
+    expect(matches[2], '', reason: businessRule);
+    expect(matches[3], '', reason: businessRule);
+    expect(matches[4], '', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
+
+    businessRule = 'Bad formated html are handle ok until error';
+
+    testText = 'Aenean laci<nia bibendum <a test href=\'/l<>ife\'>';
+    matches = JSXParser.getFirstHtmlElements(testText);
+
+    expect(matches[0], 'Aenean laci', reason: businessRule);
+    expect(matches[1], 'Aenean laci', reason: businessRule);
+    expect(matches[2], '', reason: businessRule);
+    expect(matches[3], '', reason: businessRule);
+    expect(matches[4], '', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
+
+    businessRule = 'Entire bad formated html return all empty';
+
+    testText = '<nia bibendum <a test href=\'/l<>ife\'>';
+    matches = JSXParser.getFirstHtmlElements(testText);
+
+    expect(matches[0], '', reason: businessRule);
+    expect(matches[1], '', reason: businessRule);
+    expect(matches[2], '', reason: businessRule);
+    expect(matches[3], '', reason: businessRule);
+    expect(matches[4], '', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
+
+    businessRule = 'Empty html should return all empty';
+
+    testText = '';
+    matches = JSXParser.getFirstHtmlElements(testText);
+
+    expect(matches[0], '', reason: businessRule);
+    expect(matches[1], '', reason: businessRule);
+    expect(matches[2], '', reason: businessRule);
+    expect(matches[3], '', reason: businessRule);
+    expect(matches[4], '', reason: businessRule);
+    expect(matches[5], '', reason: businessRule);
+    expect(matches[6], '', reason: businessRule);
+
+    businessRule = 'null html should return null and do not return same as empty';
+
+    testText = null;
+    matches = JSXParser.getFirstHtmlElements(testText);
+
+    expect(matches, null, reason: businessRule);
   });
 
   testWidgets('Empty HTML parser', (WidgetTester tester) async {
@@ -146,6 +219,44 @@ void main() {
     example =  JSXNodeElement('body', nodes:[ JSXNodeElement('p', nodes: [JSXNodeElement('p', nodes: [JSXNodeElement('widget')])]) ]);
     expect(JSXParser.parse('<p><p><widget></widget></p></p>'), example, reason: businessRule);
     expect(JSXParser.parse('<p><p><widget/></p></p>')        , example, reason: businessRule);
+
+    example =  JSXNodeElement('body', nodes:[ JSXNodeElement('p', nodes: [JSXNodeElement('p', nodes: [JSXNodeElement('widget')])]) ]);
+  });
+
+  testWidgets('Invalid HTML elements', (WidgetTester tester) async {
+
+    JSXNode example;
+    businessRule = 'Hole invalid HTML should return empty body';
+
+    example =  JSXNodeElement('body');
+    expect(JSXParser.parse('<p></a>'), example, reason: businessRule);
+    expect(JSXParser.parse('<p><widget></widget></a>'), example, reason: businessRule);
+
+    businessRule = 'Invalid HTML trees should not be returned, only valid ones';
+    example =  JSXNodeElement('body', nodes:[ JSXNodeElement('p', nodes: []) ]);
+    expect(JSXParser.parse('<p><p><widget></widget></a></p>'), example, reason: businessRule);
+  });
+
+  testWidgets('Attributes test', (WidgetTester tester) async {
+
+    JSXNode example1, example2;
+
+    businessRule = 'Attributes extraction to node elements';
+    example1 =  JSXNodeElement('a', attributes: { 'href': '/test' });
+    expect(JSXParser.extractParameters(JSXNodeElement('a'), ' href="/test"'), example1, reason: businessRule);
+
+    businessRule = 'Parser jsx with attributes';
+    example2 =  JSXNodeElement('body', nodes:[ example1 ]);
+    expect(JSXParser.parse('<a href="/test"></a>'), example2, reason: businessRule);
+
+    businessRule = 'Attributes extraction to node elements with scape key';
+    example1 =  JSXNodeElement('a', attributes: { 'href': '"test', 'attr': '\'test' });
+    expect(JSXParser.extractParameters(JSXNodeElement('a'), ' href="\\"test" attr=\'\\\'test\''), example1, reason: businessRule);
+
+    businessRule = 'Parser jsx with attributes with scape key';
+    example2 =  JSXNodeElement('body', nodes:[ JSXNodeElement('a', attributes: { 'href': '/"test', 'attr': '\'test' }) ]);
+    expect(JSXParser.parse('<a href="/\\"test" attr=\'\\\'test\'></a>'), example2, reason: businessRule);
+
   });
 
 }

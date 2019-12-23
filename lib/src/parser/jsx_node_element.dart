@@ -14,6 +14,10 @@ class JSXNodeElement extends JSXNode {
         addNode(node);
       }
     }
+
+    if(attributes != null){
+      this.attributes.addAll(attributes);
+    }
   }
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_responsive/src/typography/responsive_parser_new.dart';
+import 'package:flutter_responsive/src/typography/responsive_parser.dart';
 
 void main() {
 
@@ -47,22 +47,23 @@ void main() {
     ResponsiveParser parser = ResponsiveParser();
 
     businessRule = 'Empty text or null should return empty RichText object';
-    testRichTextTree(parser.parseHTML(html: null), RichText( text: TextSpan( text: '' ) ), businessRule);
-    testRichTextTree(parser.parseHTML(html: ''  ), RichText( text: TextSpan( text: '' ) ), businessRule);
+    RichText test = parser.parseJSX(html: null);
+    testRichTextTree(test, RichText( text: TextSpan( text: '' ) ), businessRule);
+    testRichTextTree(parser.parseJSX(html: ''  ), RichText( text: TextSpan( text: '' ) ), businessRule);
 
     businessRule = 'Empty tags and closed empty tags should return the same RichText object';
 
     RichText
-      emptyTags = parser.parseHTML(
-        html: '<i></i>',
+      emptyTags = parser.parseJSX(
+        html: '<icon></icon>',
         widgets: {
-          'i': Icon(Icons.check)
+          'icon': Icon(Icons.check)
         },
       ),
-      closedTags = parser.parseHTML(
-        html: '<i/>',
+      closedTags = parser.parseJSX(
+        html: '<icon/>',
         widgets: {
-          'i': Icon(Icons.check)
+          'icon': Icon(Icons.check)
         },
       );
 
@@ -76,10 +77,10 @@ void main() {
     businessRule = 'RichText should be the most efficient cost as possible';
 
     testRichTextTree(
-        parser.parseHTML(
-          html: '<i></i>',
+        parser.parseJSX(
+          html: '<icon></icon>',
           widgets: {
-            'i': Icon(Icons.check)
+            'icon': Icon(Icons.check)
           },
         ),
         RichText(
@@ -91,14 +92,15 @@ void main() {
     );
 
     testRichTextTree(
-        parser.parseHTML(
-          html: '<p><i></i> test</p>',
+        parser.parseJSX(
+          html: '<div><icon></icon> test</div>',
           widgets: {
-            'i': Icon(Icons.check)
+            'icon': Icon(Icons.check)
           },
         ),
         RichText(
           text: TextSpan(
+            style: TextStyle(inherit: true),
             children: [
               WidgetSpan( child: Icon(Icons.check) ),
               TextSpan(
@@ -111,10 +113,10 @@ void main() {
     );
 
     testRichTextTree(
-        parser.parseHTML(
-          html: '<i/>',
+        parser.parseJSX(
+          html: '<icon/>',
           widgets: {
-            'i': Icon(Icons.check)
+            'icon': Icon(Icons.check)
           },
         ),
         RichText(

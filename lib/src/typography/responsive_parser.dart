@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/src/typography/responsive_stylesheet.dart';
-import 'package:html/dom.dart' as dom;
-import 'package:html/parser.dart' as parser;
-
 import 'responsive_default_stylesheet.dart';
+import 'package:flutter_responsive/src/parser/jsx_parser.dart';
+import 'package:flutter_responsive/src/parser/jsx_node.dart';
+import 'package:flutter_responsive/src/parser/jsx_node_text.dart';
+import 'package:flutter_responsive/src/parser/jsx_node_element.dart';
 
 /// Converts HTML [String] texts into [RichText] objects
 class ResponsiveParser {
@@ -18,25 +19,25 @@ class ResponsiveParser {
 
   /// GET RESPECTIVE NODE STYLESHEET
   @visibleForTesting
-  ResponsiveStylesheet getStylesheet(dom.Element element) {
-    ResponsiveStylesheet findedStylesheet;
+  ResponsiveStylesheet getStylesheet(JSXNodeElement element) {
+    ResponsiveStylesheet finderStylesheet;
     String tag = element.localName;
 
     // TODO Match could be improve to use the same CSS Web rules. Now is working only for equal elements
     if (tag != null &&
         defaultStylesheet != null &&
         defaultStylesheet.containsKey(tag)) {
-      findedStylesheet = defaultStylesheet[tag];
+      finderStylesheet = defaultStylesheet[tag];
     }
 
     if (tag != null && stylesheet.containsKey(tag)) {
-      findedStylesheet = findedStylesheet == null
+      finderStylesheet = finderStylesheet == null
           ? (stylesheet != null ? stylesheet[tag] : null)
-          : ResponsiveStylesheet.cascade(findedStylesheet, stylesheet[tag],
+          : ResponsiveStylesheet.cascade(finderStylesheet, stylesheet[tag],
               mergeBoxProperties: true);
     }
 
-    return findedStylesheet;
+    return finderStylesheet;
   }
 
   /// SHRINKS CODE REMOVING WHITE SPACES AND BREAK LINES
@@ -47,8 +48,8 @@ class ResponsiveParser {
 
   /// EXTRACTS BODY CONTENT FROM HTML CODE
   @visibleForTesting
-  dom.Node extractBodyContent(String data) {
-    return parser.parse(data)?.body;
+  JSXNode extractBodyContent(String data) {
+    return JSXParser.parse(data);
   }
 
   /// REPLACE BREAK LINES FOR HTML BREAK LINES
@@ -67,9 +68,12 @@ class ResponsiveParser {
     this.widgetNodes = widgetNodes;
 
     String data = replaceBreakLines(html, renderNewLines);
-    dom.Node domBody = extractBodyContent(data);
+    JSXNodeElement domBody = extractBodyContent(data);
 
-    InlineSpan spanBody = parseDomNode(domBody, customStylesheet['body']);
+    InlineSpan spanBody;
+    if(domBody != null){
+      spanBody = parseDomNode(domBody.nodes.first, customStylesheet['body']);
+    }
 
     return RichText(
       text: TextSpan(
@@ -82,14 +86,14 @@ class ResponsiveParser {
   ///
   /// PARSE DOM OBJECT AND HIS CHILDREN INTO INLINE SPAN OBJECTS AND ITS DERIVATIVES
   @visibleForTesting
-  InlineSpan parseDomNode(dom.Node node, ResponsiveStylesheet lastStyle) {
+  InlineSpan parseDomNode(JSXNode node, ResponsiveStylesheet lastStyle) {
     if (node == null) return null;
 
     InlineSpan parentSpan;
 
-    if (node is dom.Text) {
+    if (node is JSXNodeText) {
       parentSpan = parseDomText(node, lastStyle);
-    } else if (node is dom.Element) {
+    } else if (node is JSXNodeElement) {
       parentSpan = parseDomElement(node, lastStyle);
     }
 
@@ -98,7 +102,7 @@ class ResponsiveParser {
 
   /// Parse dom text elements into text widgets
   @visibleForTesting
-  InlineSpan parseDomText(dom.Text node, ResponsiveStylesheet lastStyle) {
+  InlineSpan parseDomText(JSXNodeText node, ResponsiveStylesheet lastStyle) {
     List<InlineSpan> children;
 
     String finalText = node.text;
@@ -106,30 +110,24 @@ class ResponsiveParser {
 
     InlineSpan returnedSpan;
 
-    if (node.parent is dom.Element) {
+    if (node.parentNode is JSXNodeElement) {
       // Special content characteristics
-      switch (node.parent.localName) {
+      switch (node.parentNode.localName) {
         case "q":
           finalText = '"' + finalText + '"';
           break;
       }
     }
 
-    if (node.nodes.isNotEmpty) {
-      node.nodes.forEach((dom.Node childNode) {
-        children.add(parseDomNode(node, lastStyle));
-      });
-    }
-
     TextStyle style = lastStyle.textStyle ?? TextStyle();
 
     return returnedSpan ??
-        TextSpan( text: finalText, children: children, style: style );
+        TextSpan( text: finalText, style: style );
   }
 
   /// Parse dom elements into container widgets
   @visibleForTesting
-  InlineSpan parseDomElement(dom.Element node, ResponsiveStylesheet lastStyle) {
+  InlineSpan parseDomElement(JSXNodeElement node, ResponsiveStylesheet lastStyle) {
     if (_allowedElements.isNotEmpty &&
         node.localName != 'body' &&
         !_allowedElements.contains(node.localName)) {
@@ -151,7 +149,7 @@ class ResponsiveParser {
           mergeBoxProperties: true);
     }
 
-    node.nodes.forEach((dom.Node childNode) {
+    node.nodes.forEach((JSXNode childNode) {
       InlineSpan child = parseDomNode(childNode, childStylesheet);
       if (child != null) myChildren.add(child);
     });
@@ -187,7 +185,7 @@ class ResponsiveParser {
   /// APPLIES HTML ATTRIBUTES TO THE SPAN OBJECT
   @visibleForTesting
   ResponsiveStylesheet applyHtmlAttributes(
-      dom.Element element, ResponsiveStylesheet lastStyle) {
+      JSXNodeElement element, ResponsiveStylesheet lastStyle) {
 
     ResponsiveStylesheet stylesheet =
         ResponsiveStylesheet().merge(lastStyle, mergeBoxProperties: true);
@@ -231,7 +229,7 @@ class ResponsiveParser {
 
   /// APPLIES THE STYLESHEET TO THE SPAN OBJECT
   @visibleForTesting
-  InlineSpan getSpanElement(dom.Element element, List<InlineSpan> children,
+  InlineSpan getSpanElement(JSXNodeElement element, List<InlineSpan> children,
       ResponsiveStylesheet lastStyle) {
 
     InlineSpan span = TextSpan(

@@ -1,132 +1,97 @@
-import 'dart:html';
-
+/*
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive/src/typography/responsive_stylesheet.dart';
+import 'package:html/dom.dart' as dom;
+import 'package:html/parser.dart' as parser;
+
+import 'responsive_default_stylesheet.dart';
 
 /// Converts HTML [String] texts into [RichText] objects
 class ResponsiveParser {
   final List<String> _allowedElements = [];
   Map<String, ResponsiveStylesheet> stylesheet;
-  Map<String, Widget> widgets;
-
-  // RichText methods return error when they received null values
-  InlineSpan emptyTextSpan = TextSpan(text: '');
+  Map<String, Widget> widgetNodes;
 
   set allowedElements(List<String> list) {
     _allowedElements.clear();
     _allowedElements.addAll(list);
   }
 
-  static final RegExp regExp = RegExp(
-      r'(?<!\\)<([\/!])?\w+(\s+\w+="[^"]*")*(\s+)?(\/)?>',
-      caseSensitive: false,
-      multiLine: true
-  );
-
-  static List<String> _selfEnclosedTags = const [
-    'input',
-    'br',
-  ];
-
+  /// GET RESPECTIVE NODE STYLESHEET
   @visibleForTesting
-  static Map<String, String> extractParameters(Element node, String content){
-    RegExpMatch match = regExp.firstMatch(content);
+  ResponsiveStylesheet getStylesheet(dom.Element element) {
+    ResponsiveStylesheet findedStylesheet;
+    String tag = element.localName;
 
-    if(match.groupCount > 0){
-      content = content.replaceFirst(regExp, '');
-    } else if(content != null && content.isNotEmpty) {
-
+    // TODO Match could be improve to use the same CSS Web rules. Now is working only for equal elements
+    if (tag != null &&
+        defaultStylesheet != null &&
+        defaultStylesheet.containsKey(tag)) {
+      findedStylesheet = defaultStylesheet[tag];
     }
+
+    if (tag != null && stylesheet.containsKey(tag)) {
+      findedStylesheet = findedStylesheet == null
+          ? (stylesheet != null ? stylesheet[tag] : null)
+          : ResponsiveStylesheet.cascade(findedStylesheet, stylesheet[tag],
+          mergeBoxProperties: true);
+    }
+
+    return findedStylesheet;
   }
 
-  static List<Node> parse(String html, {Node localNode}){
-    RegExpMatch match = regExp.firstMatch(html);
-
-    if(match.groupCount == 0){
-      if(html != null && html.isNotEmpty) {
-        return [Text(html)];
-      }
-    } else {
-      String
-      tagName = match.group(2),
-          attributes = match.group(3),
-          closingTag = match.group(1),
-          selfEnclosing = match.group(11);
-
-      // Closing tag
-      if(closingTag.isNotEmpty){
-        if(localNode is Element){
-          if(localNode.localName != tagName){
-
-          }
-        }
-
-      } else
-
-        // Self-closing tag
-      if (selfEnclosing.isNotEmpty){
-
-      }
-
-      // Opening tag
-      else {
-        Element element = Element(tagName);
-        extractParameters(element, attributes);
-        element.parentNode = localNode;
-
-        html = html.replaceFirst(regExp, '');
-
-        element.nodes..addAll(parse(html, localNode: element));
-      }
-
-    }
-    return null;
+  /// SHRINKS CODE REMOVING WHITE SPACES AND BREAK LINES
+  @visibleForTesting
+  String condenseHtmlWhitespace(String stringToTrim) {
+    return stringToTrim.replaceAll(RegExp(r'\n+|\s+'), ' '); //.trim()
   }
 
-  /// Extracts body content from html code
+  /// EXTRACTS BODY CONTENT FROM HTML CODE
   @visibleForTesting
   dom.Node extractBodyContent(String data) {
-    return data == null ? null : parser.parse(data)?.body?.children?.first;
+    return parser.parse(data)?.body;
   }
 
-  /// Replace break lines for html break lines
+  /// REPLACE BREAK LINES FOR HTML BREAK LINES
   @visibleForTesting
   String replaceBreakLines(String data, bool renderNewLines) {
     return renderNewLines ? data.replaceAll("\n", "<br />") : data;
   }
 
-  /// Parse html code into rich text widget
-  RichText parseHTML({
+  /// PARSE HTML CODE INTO RICH TEXT WIDGET
+  RichText parseHTML(
       String html,
-      bool renderNewLines = false,
-      Map<String, ResponsiveStylesheet> stylesheet,
-      Map<String, Widget> widgets
-  }){
-    if(html == null || html.isEmpty){ return RichText( text: emptyTextSpan ); }
-
-    this.widgets = widgets;
+      bool renderNewLines,
+      Map<String, ResponsiveStylesheet> customStylesheet,
+      Map<String, Widget> widgetNodes) {
+    stylesheet = customStylesheet;
+    this.widgetNodes = widgetNodes;
 
     String data = replaceBreakLines(html, renderNewLines);
     dom.Node domBody = extractBodyContent(data);
 
+    InlineSpan spanBody = parseDomNode(domBody, customStylesheet['body']);
+
     return RichText(
-      text: parseDomNode(domBody) ?? emptyTextSpan
+      text: TextSpan(
+          style: customStylesheet['body'].textStyle,
+          children: [spanBody ?? TextSpan(text: '')]),
     );
   }
 
   /// CHAIN OF RESPONSIBILITY DESIGN PATTERN
   ///
-  /// Parse dom object and his children into inline span objects and its derivatives
+  /// PARSE DOM OBJECT AND HIS CHILDREN INTO INLINE SPAN OBJECTS AND ITS DERIVATIVES
   @visibleForTesting
-  InlineSpan parseDomNode(dom.Node node) {
+  InlineSpan parseDomNode(dom.Node node, ResponsiveStylesheet lastStyle) {
     if (node == null) return null;
 
     InlineSpan parentSpan;
 
     if (node is dom.Text) {
-      parentSpan = parseDomText(node);
+      parentSpan = parseDomText(node, lastStyle);
     } else if (node is dom.Element) {
-      parentSpan = parseDomElement(node);
+      parentSpan = parseDomElement(node, lastStyle);
     }
 
     return parentSpan;
@@ -134,11 +99,13 @@ class ResponsiveParser {
 
   /// Parse dom text elements into text widgets
   @visibleForTesting
-  InlineSpan parseDomText(dom.Text node) {
+  InlineSpan parseDomText(dom.Text node, ResponsiveStylesheet lastStyle) {
     List<InlineSpan> children;
 
     String finalText = node.text;
     if (finalText == null || finalText.trim().isEmpty) return null;
+
+    InlineSpan returnedSpan;
 
     if (node.parent is dom.Element) {
       // Special content characteristics
@@ -151,81 +118,191 @@ class ResponsiveParser {
 
     if (node.nodes.isNotEmpty) {
       node.nodes.forEach((dom.Node childNode) {
-        children.add(parseDomNode(node));
+        children.add(parseDomNode(node, lastStyle));
       });
     }
 
-    return getSpanText( finalText, children );
+    TextStyle style = lastStyle.textStyle ?? TextStyle();
+
+    return returnedSpan ??
+        TextSpan( text: finalText, children: children, style: style );
   }
 
   /// Parse dom elements into container widgets
   @visibleForTesting
-  InlineSpan parseDomElement(dom.Element node) {
-
-    // Body should never be excluded
-    if (node.localName != 'body' && _allowedElements.isNotEmpty && !_allowedElements.contains(node.localName)) {
+  InlineSpan parseDomElement(dom.Element node, ResponsiveStylesheet lastStyle) {
+    if (_allowedElements.isNotEmpty &&
+        node.localName != 'body' &&
+        !_allowedElements.contains(node.localName)) {
       return null;
     }
 
     List<InlineSpan> myChildren = [];
+    ResponsiveStylesheet localStylesheet = getStylesheet(node),
+    // Box properties and positional attributes should not cascade to children
+        childStylesheet = localStylesheet == null
+            ? lastStyle
+            : ResponsiveStylesheet.cascade(lastStyle, localStylesheet);
 
-    for(dom.Node childNode in node.nodes) {
-      InlineSpan child = parseDomNode(childNode);
-      if (child != null) myChildren.add(child);
+    if (localStylesheet == null) {
+      localStylesheet = lastStyle;
+    } else {
+      // Box properties and positional attributes should be maintained while local style is cascaded from last styles
+      localStylesheet = ResponsiveStylesheet.cascade(lastStyle, localStylesheet,
+          mergeBoxProperties: true);
     }
 
-    return getSpanElement(node, myChildren);
-  }
+    node.nodes.forEach((dom.Node childNode) {
+      InlineSpan child = parseDomNode(childNode, childStylesheet);
+      if (child != null) myChildren.add(child);
+    });
 
-  @visibleForTesting
-  InlineSpan getSpanText(String content, List<InlineSpan> children){
-    return TextSpan(text: content, children: children ?? []);
-  }
+    // Special block treatment
+    switch (node.localName) {
+      case 'br':
+        return TextSpan(text: '\n', children: myChildren);
+        break;
 
-  /// Applies the stylesheet to the span object
-  @visibleForTesting
-  InlineSpan getSpanElement(dom.Element node, List<InlineSpan> children) {
+      case 'p':
+        myChildren = [TextSpan(text: '\t' * (lastStyle?.textIndent ?? 0))]
+          ..addAll(myChildren);
+        break;
+    }
 
-    InlineSpan span;
-
-    if (widgets.containsKey(node.localName)) {
-
-      Widget widget = widgets[node.localName];
+    if (widgetNodes.containsKey(node.localName)) {
+      Widget widget = widgetNodes[node.localName];
 
       if (widget != null) {
-        return children == null || children.isEmpty ?
-          WidgetSpan(child: widget):
-          TextSpan(
-              children: [WidgetSpan(child: widget)]..addAll(children)
-          );
+        myChildren = [WidgetSpan(child: widget)]..addAll(myChildren);
       }
+    }
 
-    } else {
+    InlineSpan parentSpan;
+    if (myChildren.isNotEmpty) {
+      parentSpan = getSpanElement(node, myChildren, localStylesheet);
+    }
 
-      span = TextSpan(
-          children: children
+    return parentSpan;
+  }
+
+  /// APPLIES HTML ATTRIBUTES TO THE SPAN OBJECT
+  @visibleForTesting
+  ResponsiveStylesheet applyHtmlAttributes(
+      dom.Element element, ResponsiveStylesheet lastStyle) {
+
+    ResponsiveStylesheet stylesheet =
+    ResponsiveStylesheet().merge(lastStyle, mergeBoxProperties: true);
+
+    for (String attribute in element.attributes.keys) {
+      switch (attribute) {
+        case 'align':
+          switch (element.attributes['align']) {
+            case 'right':
+              stylesheet.textAlign = TextAlign.right;
+              break;
+            case 'left':
+              stylesheet.textAlign = TextAlign.left;
+              break;
+            case 'center':
+              stylesheet.textAlign = TextAlign.center;
+              stylesheet.alignment = Alignment.center;
+              break;
+            case 'justify':
+              stylesheet.textAlign = TextAlign.justify;
+              break;
+          }
+          break;
+
+        case 'width':
+          if (element.attributes['width'].isNotEmpty) {
+            stylesheet.width = double.parse(element.attributes['width']);
+          }
+          break;
+
+        case 'height':
+          if (element.attributes['height'].isNotEmpty) {
+            stylesheet.width = double.parse(element.attributes['height']);
+          }
+          break;
+      }
+    }
+
+    return stylesheet;
+  }
+
+  /// APPLIES THE STYLESHEET TO THE SPAN OBJECT
+  @visibleForTesting
+  InlineSpan getSpanElement(dom.Element element, List<InlineSpan> children,
+      ResponsiveStylesheet lastStyle) {
+
+    InlineSpan span = TextSpan(
+        text: '',
+        style: lastStyle?.textStyle ?? TextStyle(),
+        children: children
+    );
+
+    ResponsiveStylesheet localStylesheet =
+    applyHtmlAttributes(element, lastStyle);
+
+    if (lastStyle != null && span != null) {
+      RichText richText = RichText(
+        softWrap: true,
+        textAlign: localStylesheet.textAlign ?? TextAlign.left,
+        text: span,
       );
 
-      if (span != null) {
-        Widget widget;
+      Widget widget = richText;
 
-        if(false /*container*/){
+      if(localStylesheet.opacity < 1.0){
+        widget = Opacity(
+          opacity: localStylesheet.opacity,
+          child: widget,
+        );
+      }
 
-          RichText richText = RichText(
-            softWrap: true,
-            text: span,
-          );
-
-          Widget widget = richText;
-        }
-
-        return widget == null ? span : WidgetSpan(
+      if(
+      localStylesheet.width != null ||
+          localStylesheet.height != null ||
+          localStylesheet.margin != null ||
+          localStylesheet.padding != null ||
+          localStylesheet.boxDecoration != null ||
+          localStylesheet.displayStyle == DisplayStyle.block
+      ){
+        widget = Container(
+            width: localStylesheet.width ??
+                (localStylesheet.displayStyle == DisplayStyle.block
+                    ? double.infinity
+                    : null),
+            height: localStylesheet.height ?? null,
+            margin: localStylesheet.margin,
+            padding: localStylesheet.padding,
+            decoration: localStylesheet.boxDecoration,
             child: widget
         );
       }
 
+      if(localStylesheet.borderRadius != null){
+        widget = ClipRRect(
+            borderRadius: localStylesheet.borderRadius,
+            child: widget
+        );
+      }
+
+      WidgetSpan blockSpan = WidgetSpan(
+          style: localStylesheet?.textStyle ?? TextStyle(),
+          alignment: ( [
+            PlaceholderAlignment.baseline,
+            PlaceholderAlignment.aboveBaseline,
+            PlaceholderAlignment.belowBaseline,
+          ].contains(localStylesheet.placeholderAlignment) ) ? PlaceholderAlignment.bottom : localStylesheet.placeholderAlignment ??
+              PlaceholderAlignment.bottom,
+          child: widget
+      );
+
+      return blockSpan;
     }
 
-    return span ?? emptyTextSpan;
+    return span;
   }
 }
+*/

@@ -203,6 +203,12 @@ void main() {
     example = JSXNodeElement('body', nodes:[ JSXNodeText('text1'), JSXNodeElement('br'), JSXNodeText('text2') ]);
     expect(JSXParser.parse('text1<br>text2'),  example, reason: businessRule);
     expect(JSXParser.parse('text1<br/>text2'), example, reason: businessRule);
+    expect(JSXParser.parse('text1<br />text2'), example, reason: businessRule);
+
+    example = JSXNodeElement('body', nodes:[ JSXNodeElement('p', nodes:[ JSXNodeText('text1'), JSXNodeElement('br'), JSXNodeText('text2') ]) ]);
+    expect(JSXParser.parse('<p>text1<br>text2</p>'),  example, reason: businessRule);
+    expect(JSXParser.parse('<p>text1<br/>text2</p>'), example, reason: businessRule);
+    expect(JSXParser.parse('<p>text1<br />text2</p>'), example, reason: businessRule);
 
     example =  JSXNodeElement('body', nodes:[ JSXNodeText('text1'), JSXNodeElement('widget'), JSXNodeText('text2') ]);
     expect(JSXParser.parse('text1<widget></widget>text2'), example, reason: businessRule);

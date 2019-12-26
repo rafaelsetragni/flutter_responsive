@@ -134,6 +134,14 @@ class _TypographyPage extends State<TypographyPage> {
                       ),
 
                       ResponsiveText(
+                        stylesheet: {
+                          'h1': ResponsiveStylesheet( displayStyle: displayStyle ),
+                          'h2': ResponsiveStylesheet( displayStyle: displayStyle ),
+                          'h3': ResponsiveStylesheet( displayStyle: displayStyle ),
+                          'h4': ResponsiveStylesheet( displayStyle: displayStyle ),
+                          'h5': ResponsiveStylesheet( displayStyle: displayStyle ),
+                          'h6': ResponsiveStylesheet( displayStyle: displayStyle ),
+                        },
                         text:
                         '<h1>h1. Responsive heading</h1>'
                         '<h2>h2. Responsive heading</h2>'
@@ -149,13 +157,13 @@ class _TypographyPage extends State<TypographyPage> {
 
                       ResponsiveText(
                         stylesheet: {
-                          'rebel_aliance': ResponsiveStylesheet( margin: EdgeInsets.symmetric(horizontal: 5.0), boxDecoration: BoxDecoration(color: Colors.blueGrey) ),
-                          'back_to_90s': ResponsiveStylesheet( borderRadius: BorderRadius.all(Radius.circular(30.0)) ),
-                          'p': ResponsiveStylesheet( boxDecoration: BoxDecoration(color: Colors.red) )
+                          'RebelAliance': ResponsiveStylesheet( margin: EdgeInsets.symmetric(horizontal: 5.0) ),
+                          'BackTo90s': ResponsiveStylesheet( borderRadius: BorderRadius.all(Radius.circular(30.0)) ),
+                          'p': ResponsiveStylesheet( displayStyle: displayStyle ),
                         },
                         widgetNodes: {
-                          'rebel_aliance': Icon(FontAwesomeIcons.rebel, color: Colors.red),
-                          'back_to_90s': InkWell(
+                          'RebelAliance': Icon(FontAwesomeIcons.rebel, color: Colors.red),
+                          'BackTo90s': InkWell(
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute( builder: (BuildContext context) => FullscreenImageView(turtleImage) ));
                             },
@@ -167,9 +175,9 @@ class _TypographyPage extends State<TypographyPage> {
                         },
                         text:
                           '<center>'
-                              '<rebel_aliance type="widget"></rebel_aliance> Text with widget <rebel_aliance type="widget"></rebel_aliance>'
+                              '<RebelAliance/> Text with widget <RebelAliance/>'
                               '\n\n'
-                              '<back_to_90s type="widget"></back_to_90s>'
+                              '<BackTo90s/>'
                               '<p>It´s pizza time!</p>'
                           '</center>',
                         margin: EdgeInsets.only(bottom: 20),
@@ -188,10 +196,15 @@ class _TypographyPage extends State<TypographyPage> {
                         display: displayStyle,
                       ),
                       ResponsiveText(
+                        stylesheet: {
+                          'h1': ResponsiveStylesheet( displayStyle: displayStyle, margin: EdgeInsets.only(bottom: 10) ),
+                          'h2': ResponsiveStylesheet( displayStyle: displayStyle, margin: EdgeInsets.symmetric(vertical: 10)  ),
+                          'p': ResponsiveStylesheet( displayStyle: displayStyle )
+                        },
                         text:
                         """
                           <h1>Demo Page</h1>
-                          <b>Note:</b><br>
+                          <b>Note:</b>
                           <p>This is a fantastic nonexistent product that you should buy!</p>
                           <h2>Pricing</h2>
                           <p>Lorem ipsum <b>dolor</b> sit amet.</p>

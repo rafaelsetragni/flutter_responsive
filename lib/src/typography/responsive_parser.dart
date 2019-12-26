@@ -73,7 +73,7 @@ class ResponsiveParser {
 
     InlineSpan spanBody;
     if(domBody != null){
-      spanBody = parseDomNode(domBody.nodes.first, customStylesheet['body']);
+      spanBody = parseDomNode(domBody, customStylesheet['body']);
     }
 
     return RichText(
@@ -95,6 +95,10 @@ class ResponsiveParser {
     } else if (node is JSXNodeElement) {
       parentSpan = parseDomElement(node, lastStyle);
     }
+/*
+    for(JSXNode childNode in node.nodes){
+      parseDomNode(node, lastStyle);
+    }*/
 
     return parentSpan;
   }

@@ -36,14 +36,14 @@ class FullscreenImageView extends StatelessWidget {
               child: ResponsiveText(
                 display: DisplayStyle.inline,
                 stylesheet: {
-                  'widget': ResponsiveStylesheet(
+                  'Close': ResponsiveStylesheet(
                       padding: EdgeInsets.only(bottom: 5)
                   )
                 },
                 widgetNodes: {
-                  'back_arrow': Icon(FontAwesomeIcons.times, color: Colors.white, size: 26)
+                  'Close': Icon(FontAwesomeIcons.times, color: Colors.white, size: 26)
                 },
-                text: '<widget>back_arrow</widget>',
+                text: '<Close/>',
               )
             )
           ),

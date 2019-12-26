@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c9ca9be8-ef83-42b3-9646-f328f611d9a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/parser/jsx_node_element.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/parser/jsx_node_element.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/pages/typography_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/pages/typography_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/parser/jsx_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/parser/jsx_parser.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/typography/responsive_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/typography/responsive_parser.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/typography/responsive_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/typography/responsive_text.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/responsive_parser_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/responsive_parser_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/responsive_text_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/responsive_text_test.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -36,14 +35,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/responsive_text_test.dart">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/lib/pages/typography_page.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
+            <state relative-caret-position="136">
+              <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_text.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1598">
+              <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_parser_new.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="286" column="25" selection-start-line="286" selection-start-column="25" selection-end-line="286" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -51,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_parser.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="119" column="45" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
+            <state relative-caret-position="-697">
+              <caret line="73" column="15" selection-start-line="73" selection-start-column="15" selection-end-line="73" selection-end-column="15" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -61,48 +108,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.5/lib/testing/src/async/fake_async.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="222" column="50" selection-start-line="222" selection-start-column="50" selection-end-line="222" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/flutter/packages/flutter_test/lib/src/widget_tester.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="123" column="10" selection-start-line="123" selection-start-column="10" selection-end-line="123" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/flutter/packages/flutter_test/lib/src/binding.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="695" column="4" selection-start-line="695" selection-start-column="4" selection-end-line="695" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.2.11/lib/src/frontend/expect.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/src/parser/jsx_parser.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+            <state>
+              <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/responsive_parser_test.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="209" column="52" selection-start-line="209" selection-start-column="52" selection-end-line="209" selection-end-column="52" />
               <folding>
-                <element signature="e#1#40#0" expanded="true" />
+                <element signature="e#0#48#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,6 +142,7 @@
       <find>textAlign</find>
       <find>self</find>
       <find>parseHTML</find>
+      <find>nodes</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -152,30 +173,30 @@
         <option value="$PROJECT_DIR$/lib/src/grid/responsive_row.dart" />
         <option value="$PROJECT_DIR$/lib/src/grid/responsive_screen.dart" />
         <option value="$PROJECT_DIR$/lib/src/grid/responsive_widget.dart" />
-        <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/lib/src/typography/responsive_default_stylesheet.dart" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart" />
         <option value="$PROJECT_DIR$/example/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/src/typography/responsive_stylesheet.dart" />
-        <option value="$PROJECT_DIR$/example/lib/pages/typography_page.dart" />
         <option value="$PROJECT_DIR$/test/responsive_col_test.dart" />
         <option value="$PROJECT_DIR$/test/html_parser_test.dart" />
         <option value="$PROJECT_DIR$/lib/src/parser/html_parser.dart" />
         <option value="$PROJECT_DIR$/lib/src/parser/node.dart" />
         <option value="$PROJECT_DIR$/lib/src/parser/node_element.dart" />
         <option value="$PROJECT_DIR$/lib/src/parser/node_text.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/flutter_responsive.dart" />
         <option value="$PROJECT_DIR$/lib/src/parser/jsx_node_text.dart" />
         <option value="$PROJECT_DIR$/lib/src/typography/responsive_parser_new.dart" />
+        <option value="$PROJECT_DIR$/lib/src/typography/responsive_text.dart" />
+        <option value="$PROJECT_DIR$/test/responsive_text_test.dart" />
+        <option value="$PROJECT_DIR$/lib/src/typography/responsive_parser.dart" />
         <option value="$PROJECT_DIR$/lib/src/parser/jsx_node.dart" />
         <option value="$PROJECT_DIR$/lib/src/parser/jsx_node_element.dart" />
         <option value="$PROJECT_DIR$/lib/src/parser/jsx_parser.dart" />
         <option value="$PROJECT_DIR$/test/responsive_parser_test.dart" />
-        <option value="$PROJECT_DIR$/lib/src/typography/responsive_text.dart" />
-        <option value="$PROJECT_DIR$/test/responsive_text_test.dart" />
-        <option value="$PROJECT_DIR$/lib/src/typography/responsive_parser.dart" />
+        <option value="$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart" />
+        <option value="$PROJECT_DIR$/example/lib/pages/typography_page.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/CHANGELOG.md" />
       </list>
     </option>
   </component>
@@ -191,6 +212,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -202,31 +225,6 @@
             <path>
               <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -234,6 +232,13 @@
               <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_responsive" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="parser" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flutter_responsive" type="b2602c69:ProjectViewProjectNode" />
@@ -251,8 +256,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -285,18 +288,13 @@
     </option>
   </component>
   <component name="RunManager" selected="Flutter.example/lib/main.dart">
-    <configuration name="Attributes test" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
-      <option name="testName" value="Attributes test" />
+    <configuration name="Extract html elements test" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Extract html elements test" />
       <option name="testFile" value="$PROJECT_DIR$/test/responsive_parser_test.dart" />
       <method v="2" />
     </configuration>
-    <configuration name="HTML parser without stylish (1)" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
-      <option name="testName" value="HTML parser without stylish" />
-      <option name="testFile" value="$PROJECT_DIR$/test/responsive_text_test.dart" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Invalid HTML elements" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
-      <option name="testName" value="Invalid HTML elements" />
+    <configuration name="HTML self contained elements" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="HTML self contained elements" />
       <option name="testFile" value="$PROJECT_DIR$/test/responsive_parser_test.dart" />
       <method v="2" />
     </configuration>
@@ -305,17 +303,22 @@
       <option name="testFile" value="$PROJECT_DIR$/test/responsive_text_test.dart" />
       <method v="2" />
     </configuration>
+    <configuration name="body" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="body" />
+      <option name="testFile" value="$PROJECT_DIR$/test/responsive_parser_test.dart" />
+      <method v="2" />
+    </configuration>
     <configuration name="tests in responsive_parser_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
       <option name="testFile" value="$PROJECT_DIR$/test/responsive_parser_test.dart" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Flutter Test.RichText efficiency tests" />
-        <item itemvalue="Flutter Test.HTML parser without stylish (1)" />
+        <item itemvalue="Flutter Test.HTML self contained elements" />
         <item itemvalue="Flutter Test.tests in responsive_parser_test.dart" />
-        <item itemvalue="Flutter Test.Attributes test" />
-        <item itemvalue="Flutter Test.Invalid HTML elements" />
+        <item itemvalue="Flutter Test.body" />
+        <item itemvalue="Flutter Test.Extract html elements test" />
+        <item itemvalue="Flutter Test.RichText efficiency tests" />
       </list>
     </recent_temporary>
   </component>
@@ -333,24 +336,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RichText_efficiency_tests - 2019.12.23 at 18h 28m 51s.xml">
-      <configuration name="RichText efficiency tests" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="RichText_efficiency_tests - 2019.12.23 at 18h 29m 14s.xml">
-      <configuration name="RichText efficiency tests" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="RichText_efficiency_tests - 2019.12.23 at 18h 30m 09s.xml">
-      <configuration name="RichText efficiency tests" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="RichText_efficiency_tests - 2019.12.23 at 18h 31m 14s.xml">
-      <configuration name="RichText efficiency tests" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="RichText_efficiency_tests - 2019.12.23 at 18h 32m 24s.xml">
-      <configuration name="RichText efficiency tests" configurationId="FlutterTestConfigType" />
-    </history-entry>
-    <history-entry file="HTML_parser_without_stylish_(1) - 2019.12.23 at 18h 32m 35s.xml">
-      <configuration name="HTML parser without stylish (1)" configurationId="FlutterTestConfigType" />
-    </history-entry>
     <history-entry file="RichText_efficiency_tests - 2019.12.23 at 18h 38m 41s.xml">
       <configuration name="RichText efficiency tests" configurationId="FlutterTestConfigType" />
     </history-entry>
@@ -362,6 +347,24 @@
     </history-entry>
     <history-entry file="RichText_efficiency_tests - 2019.12.23 at 18h 40m 39s.xml">
       <configuration name="RichText efficiency tests" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="Extract_html_elements_test - 2019.12.26 at 12h 55m 47s.xml">
+      <configuration name="Extract html elements test" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="body - 2019.12.26 at 12h 55m 59s.xml">
+      <configuration name="body" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_responsive_parser_test_dart - 2019.12.26 at 12h 56m 55s.xml">
+      <configuration name="tests in responsive_parser_test.dart" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="HTML_self_contained_elements - 2019.12.26 at 13h 07m 33s.xml">
+      <configuration name="HTML self contained elements" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="HTML_self_contained_elements - 2019.12.26 at 13h 08m 42s.xml">
+      <configuration name="HTML self contained elements" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="HTML_self_contained_elements - 2019.12.26 at 13h 08m 56s.xml">
+      <configuration name="HTML self contained elements" configurationId="FlutterTestConfigType" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -383,22 +386,22 @@
       <window_info id="Designer" order="3" />
       <window_info id="Resources Explorer" order="4" weight="0.3298887" />
       <window_info id="Build Variants" order="5" sideWeight="0.5068493" side_tool="true" weight="0.18390192" />
-      <window_info id="Favorites" order="6" sideWeight="0.5068493" side_tool="true" visible="true" weight="0.18390192" />
-      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.49315068" visible="true" weight="0.18390192" />
+      <window_info id="Favorites" order="6" sideWeight="0.5070422" side_tool="true" weight="0.18390192" />
+      <window_info content_ui="combo" id="Project" order="7" sideWeight="0.49295774" visible="true" weight="0.18390192" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.32936078" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.32936078" />
       <window_info anchor="bottom" id="Logcat" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.3672806" />
-      <window_info anchor="bottom" id="Terminal" order="5" weight="0.3033586" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3672806" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.3033586" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="8" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="9" weight="0.42795232" />
       <window_info anchor="bottom" id="Find" order="10" weight="0.32936078" />
       <window_info anchor="right" id="Theme Preview" order="0" />
-      <window_info anchor="right" id="Flutter Inspector" order="1" sideWeight="0.49828768" visible="true" weight="0.32995737" />
+      <window_info anchor="right" id="Flutter Inspector" order="1" sideWeight="0.49828768" weight="0.32995737" />
       <window_info anchor="right" id="Flutter Outline" order="2" sideWeight="0.49828768" weight="0.32995737" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
@@ -461,43 +464,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/example/lib/layouts/sidebar.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="110" column="18" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/grid/responsive_widget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -557,20 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/pages/typography_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="155" column="26" selection-start-line="155" selection-start-column="26" selection-end-line="155" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_stylesheet.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="95" column="23" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/flutter/packages/flutter/lib/src/widgets/framework.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -611,24 +563,10 @@
     <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/matcher-0.12.6/lib/src/equals_matcher.dart" />
     <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/test_api-0.2.11/lib/src/frontend/expect.dart" />
     <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/test_api-0.2.11/lib/src/backend/declarer.dart" />
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/src/parser/jsx_node_text.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_parser_new.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2968">
-          <caret line="286" column="25" lean-forward="true" selection-start-line="286" selection-start-column="25" selection-end-line="286" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -679,30 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/parser/jsx_node_element.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/parser/jsx_node.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/responsive_parser_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="247" column="20" selection-start-line="247" selection-start-column="20" selection-end-line="247" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/flutter/packages/flutter/lib/src/painting/text_span.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -717,71 +631,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/parser/jsx_parser.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-          <folding>
-            <element signature="e#1#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_text.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1171">
-          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.0.5/lib/testing/src/async/fake_async.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
+        <state relative-caret-position="3570">
           <caret line="222" column="50" selection-start-line="222" selection-start-column="50" selection-end-line="222" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://D:/flutter/packages/flutter_test/lib/src/widget_tester.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="1377">
           <caret line="123" column="10" selection-start-line="123" selection-start-column="10" selection-end-line="123" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://D:/flutter/packages/flutter_test/lib/src/binding.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
+        <state relative-caret-position="11373">
           <caret line="695" column="4" selection-start-line="695" selection-start-column="4" selection-end-line="695" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://D:/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.2.11/lib/src/frontend/expect.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
+        <state relative-caret-position="2380">
           <caret line="150" column="9" selection-start-line="150" selection-start-column="9" selection-end-line="150" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_parser.dart">
+    <entry file="file://D:/flutter/packages/flutter/lib/src/painting/text_style.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="119" column="45" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2160">
+          <caret line="428" column="30" selection-start-line="428" selection-start-column="30" selection-end-line="428" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_stylesheet.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/responsive_text_test.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
+        <state relative-caret-position="469">
           <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/pages/sandbox_page.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/parser/jsx_node.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="39" selection-start-column="39" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/parser/jsx_node_element.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_parser_new.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="286" column="25" selection-start-line="286" selection-start-column="25" selection-end-line="286" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_parser.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-697">
+          <caret line="73" column="15" selection-start-line="73" selection-start-column="15" selection-end-line="73" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/responsive_parser_test.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="209" column="52" selection-start-line="209" selection-start-column="52" selection-end-line="209" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/parser/jsx_parser.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/src/typography/responsive_text.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/layouts/fullscreen_image.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/pages/typography_page.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>

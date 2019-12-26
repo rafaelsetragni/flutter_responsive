@@ -1,4 +1,8 @@
 
+## 0.0.5
+
+* Flutter HTML parser was successfully replaced by an new JSX parser, implemented on this plugin, to fix self-closed HTML tags node's construction. 
+
 ## 0.0.4
 
 * Added widget's HTML tag, to allow developers to include any Flutter's widget inside the text.

@@ -62,8 +62,8 @@ class ResponsiveStylesheet {
     this.displayStyle = DisplayStyle.inline,
     this.boxDecoration,
     this.opacity = 1.0,
-    this.textAlign,// = TextAlign.left,
-    this.alignment,// = Alignment.topLeft,
+    this.textAlign, // = TextAlign.left,
+    this.alignment, // = Alignment.topLeft,
     this.placeholderAlignment,
     this.borderRadius,
     this.textIndent = 0,
@@ -97,7 +97,8 @@ class ResponsiveStylesheet {
       opacity = newStylesheet.opacity ?? opacity;
       textAlign = newStylesheet.textAlign ?? textAlign;
       alignment = newStylesheet.alignment ?? alignment;
-      placeholderAlignment = newStylesheet.placeholderAlignment ?? placeholderAlignment;
+      placeholderAlignment =
+          newStylesheet.placeholderAlignment ?? placeholderAlignment;
       textIndent = newStylesheet.textIndent ?? textIndent;
       displayStyle = newStylesheet.displayStyle ?? displayStyle;
       textOverflow = newStylesheet.textOverflow ?? textOverflow;

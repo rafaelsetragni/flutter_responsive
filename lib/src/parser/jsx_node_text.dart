@@ -6,13 +6,18 @@ class JSXNodeText extends JSXNode {
   JSXNodeText(this.text);
 
   @override
-  bool operator == (other) {
+  bool operator ==(other) {
     bool result = false;
 
-    if(other is JSXNodeText) {
+    if (other is JSXNodeText) {
       result = text == other.text;
     }
     return result;
+  }
+
+  @override
+  int get hashCode {
+    return localName.hashCode ^ text.hashCode;
   }
 
   @override

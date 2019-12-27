@@ -91,8 +91,11 @@ class ResponsiveText extends StatelessWidget {
           )
     });
 
-    RichText parsedText =
-        parser.parseJSX(html: text, renderNewLines: renderNewLines, customStylesheet: stylesheet, widgets: widgetNodes);
+    RichText parsedText = parser.parseJSX(
+        html: text,
+        renderNewLines: renderNewLines,
+        customStylesheet: stylesheet,
+        widgets: widgetNodes);
 
     return Container(
       margin: margin,

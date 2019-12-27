@@ -58,13 +58,11 @@ class ResponsiveParser {
   }
 
   /// PARSE HTML CODE INTO RICH TEXT WIDGET
-  RichText parseJSX({
-      @required
-      String html,
+  RichText parseJSX(
+      {@required String html,
       bool renderNewLines = false,
       Map<String, ResponsiveStylesheet> customStylesheet = const {},
-      Map<String, Widget> widgets = const {}
-  }) {
+      Map<String, Widget> widgets = const {}}) {
     stylesheet = customStylesheet;
     this.widgets = widgets;
 
@@ -72,12 +70,12 @@ class ResponsiveParser {
     JSXNodeElement domBody = extractBodyContent(data);
 
     InlineSpan spanBody;
-    if(domBody != null){
+    if (domBody != null) {
       spanBody = parseDomNode(domBody, customStylesheet['body']);
     }
 
     return RichText(
-      text: spanBody ?? TextSpan( text: '' ),
+      text: spanBody ?? TextSpan(text: ''),
     );
   }
 
@@ -106,7 +104,6 @@ class ResponsiveParser {
   /// Parse dom text elements into text widgets
   @visibleForTesting
   InlineSpan parseDomText(JSXNodeText node, ResponsiveStylesheet lastStyle) {
-
     String finalText = node.text;
     if (finalText == null || finalText.trim().isEmpty) return null;
 
@@ -121,16 +118,15 @@ class ResponsiveParser {
       }
     }
 
-    TextStyle style = lastStyle?.textStyle;// ?? TextStyle();
+    TextStyle style = lastStyle?.textStyle; // ?? TextStyle();
 
-    return returnedSpan ??
-        TextSpan( text: finalText, style: style );
+    return returnedSpan ?? TextSpan(text: finalText, style: style);
   }
 
   /// Parse dom elements into container widgets
   @visibleForTesting
-  InlineSpan parseDomElement(JSXNodeElement node, ResponsiveStylesheet lastStyle) {
-
+  InlineSpan parseDomElement(
+      JSXNodeElement node, ResponsiveStylesheet lastStyle) {
     if (_allowedElements.isNotEmpty &&
         node.localName != 'body' &&
         !_allowedElements.contains(node.localName)) {
@@ -165,9 +161,8 @@ class ResponsiveParser {
 
       case 'p':
         int indentAmout = lastStyle?.textIndent ?? 0;
-        if(indentAmout > 0){
-          myChildren = [TextSpan(text: '\t' * indentAmout)]
-            ..addAll(myChildren);
+        if (indentAmout > 0) {
+          myChildren = [TextSpan(text: '\t' * indentAmout)]..addAll(myChildren);
         }
         break;
     }
@@ -192,7 +187,6 @@ class ResponsiveParser {
   @visibleForTesting
   ResponsiveStylesheet applyHtmlAttributes(
       JSXNodeElement element, ResponsiveStylesheet lastStyle) {
-
     ResponsiveStylesheet stylesheet =
         ResponsiveStylesheet().merge(lastStyle, mergeBoxProperties: true);
 
@@ -237,13 +231,10 @@ class ResponsiveParser {
   @visibleForTesting
   InlineSpan getSpanElement(JSXNodeElement element, List<InlineSpan> children,
       ResponsiveStylesheet lastStyle) {
-
-    InlineSpan span =
-      children.length == 1 ? children[0] :
-      TextSpan(
-          style: lastStyle?.textStyle ?? TextStyle(),
-          children: children
-      );
+    InlineSpan span = children.length == 1
+        ? children[0]
+        : TextSpan(
+            style: lastStyle?.textStyle ?? TextStyle(), children: children);
 
     ResponsiveStylesheet localStylesheet =
         applyHtmlAttributes(element, lastStyle);
@@ -257,51 +248,47 @@ class ResponsiveParser {
 
       Widget widget = richText;
 
-      if(localStylesheet.opacity < 1.0){
+      if (localStylesheet.opacity < 1.0) {
         widget = Opacity(
           opacity: localStylesheet.opacity,
           child: widget,
         );
       }
 
-      if(
-        localStylesheet.width != null ||
-        localStylesheet.height != null ||
-        localStylesheet.margin != null ||
-        localStylesheet.padding != null ||
-        localStylesheet.boxDecoration != null ||
-        localStylesheet.displayStyle == DisplayStyle.block
-      ){
+      if (localStylesheet.width != null ||
+          localStylesheet.height != null ||
+          localStylesheet.margin != null ||
+          localStylesheet.padding != null ||
+          localStylesheet.boxDecoration != null ||
+          localStylesheet.displayStyle == DisplayStyle.block) {
         widget = Container(
-          width: localStylesheet.width ??
-              (localStylesheet.displayStyle == DisplayStyle.block
-                  ? double.infinity
-                  : null),
-          height: localStylesheet.height ?? null,
-          margin: localStylesheet.margin,
-          padding: localStylesheet.padding,
-          decoration: localStylesheet.boxDecoration,
-          child: widget
-        );
+            width: localStylesheet.width ??
+                (localStylesheet.displayStyle == DisplayStyle.block
+                    ? double.infinity
+                    : null),
+            height: localStylesheet.height ?? null,
+            margin: localStylesheet.margin,
+            padding: localStylesheet.padding,
+            decoration: localStylesheet.boxDecoration,
+            child: widget);
       }
 
-      if(localStylesheet.borderRadius != null){
+      if (localStylesheet.borderRadius != null) {
         widget = ClipRRect(
-          borderRadius: localStylesheet.borderRadius,
-          child: widget
-        );
+            borderRadius: localStylesheet.borderRadius, child: widget);
       }
 
       WidgetSpan blockSpan = WidgetSpan(
-        style: localStylesheet?.textStyle ?? TextStyle(),
-        alignment: ( [
-          PlaceholderAlignment.baseline,
-          PlaceholderAlignment.aboveBaseline,
-          PlaceholderAlignment.belowBaseline,
-        ].contains(localStylesheet.placeholderAlignment) ) ? PlaceholderAlignment.bottom : localStylesheet.placeholderAlignment ??
-            PlaceholderAlignment.bottom,
-        child: widget
-      );
+          style: localStylesheet?.textStyle ?? TextStyle(),
+          alignment: ([
+            PlaceholderAlignment.baseline,
+            PlaceholderAlignment.aboveBaseline,
+            PlaceholderAlignment.belowBaseline,
+          ].contains(localStylesheet.placeholderAlignment))
+              ? PlaceholderAlignment.bottom
+              : localStylesheet.placeholderAlignment ??
+                  PlaceholderAlignment.bottom,
+          child: widget);
 
       return blockSpan;
     }

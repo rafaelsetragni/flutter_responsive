@@ -5,7 +5,6 @@ import 'responsive_widget.dart';
 
 /// Responsive container who center his content elements and limits his own widget based on [ResponsiveScreen] limits
 class ResponsiveContainer extends ResponsiveWidget {
-
   ResponsiveContainer({
     Key key,
     Color backgroundColor,

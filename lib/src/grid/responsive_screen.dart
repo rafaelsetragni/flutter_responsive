@@ -1,7 +1,5 @@
-
 /// Contains all screen size limits and all functions to test those limits
 class ResponsiveScreen {
-
   /// Screen width size limits
   static Map<String, double> limits = {
     'us': 0.00,

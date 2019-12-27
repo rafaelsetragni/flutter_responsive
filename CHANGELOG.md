@@ -1,4 +1,8 @@
 
+## 0.0.5+1
+
+* Implemented hashcode comparision methods to JSX_node_text and JSX_node_element classes.
+
 ## 0.0.5
 
 * Flutter HTML parser was successfully replaced by an new JSX parser, implemented on this plugin, to fix self-closed HTML tags node's construction. 

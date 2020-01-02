@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_jsx/flutter_jsx.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:flutter_responsive_example/layouts/sidebar.dart';
 
@@ -63,7 +64,7 @@ class _HomePage extends State<HomePage> {
                           margin: EdgeInsets.only(bottom: 20),
                           backgroundColor: Colors.blueGrey,
                           children: [
-                            Text('Flutter Responsive Layout', style: ResponsiveTypography.h4.merge(TextStyle(color: Colors.white)))
+                            Text('Flutter Responsive Layout', style: JSXTypography.h4.merge(TextStyle(color: Colors.white)))
                           ]
                       ),
                     ]
@@ -75,27 +76,26 @@ class _HomePage extends State<HomePage> {
                       // By default, the column occupies the entire row, always
                       ResponsiveCol(
                         children: [
-                          ResponsiveText(
-                            display: DisplayStyle.block,
-                            padding: EdgeInsets.only(bottom: 20),
-                            stylesheet: {
-                              'h3': ResponsiveStylesheet(
-                                  textStyle: TextStyle(color: Theme.of(context).primaryColor),
-                                  displayStyle: DisplayStyle.block
-                              ),
-                              'h6': ResponsiveStylesheet(
-                                  textStyle: TextStyle(color: Theme.of(context).primaryColor),
-                                  displayStyle: DisplayStyle.block
-                              )
-                            },
-                            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                            text:
+                          JSX(
                             '<div>'
                                 '<h3>Responsive Layouts</h3><h6>for <i>Flutter</i></h6>'
                                 '<br><br>'
                                 '<p>This <b>RichText</b> was easily produced and personalized using pure HTML</p>'
                                 '<p>Bellow there is an example of 12 columns, wich changes the amount of each line depending of his father´s widget size.</p>'
                             '</div>',
+                            display: DisplayLine.block,
+                            padding: EdgeInsets.only(bottom: 20),
+                            stylesheet: {
+                              'h3': JSXStylesheet(
+                                  textStyle: TextStyle(color: Theme.of(context).primaryColor),
+                                  displayLine: DisplayLine.block
+                              ),
+                              'h6': JSXStylesheet(
+                                  textStyle: TextStyle(color: Theme.of(context).primaryColor),
+                                  displayLine: DisplayLine.block
+                              )
+                            },
+                            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                           )
                         ]
                       )

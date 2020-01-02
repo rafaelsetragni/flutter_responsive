@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_jsx/flutter_jsx.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:flutter_responsive_example/layouts/sidebar.dart';
 
@@ -10,13 +11,13 @@ class SandboxPage extends StatefulWidget {
 class _SandboxPage extends State<SandboxPage> {
 
   bool highlight, displayInline;
-  DisplayStyle displayStyle;
+  DisplayLine displayLine;
 
   @override
   void initState() {
     highlight = false;
     displayInline = false;
-    displayStyle = DisplayStyle.block;
+    displayLine = DisplayLine.block;
     super.initState();
   }
 
@@ -69,7 +70,7 @@ class _SandboxPage extends State<SandboxPage> {
                             onChanged: (selected){
                               setState(() {
                                 displayInline = selected;
-                                displayStyle = selected ? DisplayStyle.inline : DisplayStyle.block;
+                                displayLine = selected ? DisplayLine.inline : DisplayLine.block;
                               });
                             }
                         ),
@@ -94,32 +95,32 @@ class _SandboxPage extends State<SandboxPage> {
                     padding: EdgeInsets.only(bottom: 20),
                     children: <Widget>[
 
-                      ResponsiveText(
+                      JSX(
+                        'R\$ <b>99</b>,00',
                         stylesheet: {
-                          'b': ResponsiveStylesheet(
+                          'b': JSXStylesheet(
                               margin: EdgeInsets.only(left: 10),
                               textAlign: TextAlign.right,
                               textStyle: TextStyle( fontSize: 30, color: Colors.white, backgroundColor: Colors.blue )
                           )
                         },
-                        text:'R\$ <b>99</b>,00',
                         margin: EdgeInsets.all(10.0),
                         backgroundColor: hilightColor,
-                        display: displayStyle,
+                        display: displayLine,
                       ),
 
-                      ResponsiveText(
+                      JSX(
+                        'R\$ <b>99</b>,00',
                         stylesheet: {
-                          'b': ResponsiveStylesheet(
+                          'b': JSXStylesheet(
                               margin: EdgeInsets.only(left: 10),
                               textAlign: TextAlign.right,
                               textStyle: TextStyle( fontSize: 30, color: Colors.white, backgroundColor: Colors.blue )
                           )
                         },
-                        text:'R\$ <b>99</b>,00',
                         margin: EdgeInsets.all(10.0),
                         backgroundColor: hilightColor,
-                        display: displayStyle,
+                        display: displayLine,
                       ),
 
                     ],

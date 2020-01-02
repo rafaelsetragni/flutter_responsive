@@ -17,8 +17,8 @@ To share your improvements, please first do a Fork of this project, change what 
 # IMPORTANT NOTES:
 
 * This plugin was based on [Bootstrap Web Project](https://getbootstrap.com/), but do not implement all its features (not yet).
-* The column responsivity is based on his closest parent widget size, not over the screen size, such as Bootstrap.
-* All the widgets contains margin, padding, width, height (maximun and minimum edges), such as ```div``` Html element.
+* The column's responsivity is based on his closest parent widget size, not over the screen size, such as Bootstrap.
+* All the widgets contains margin, padding, width, height (maximum and minimum edges), such as ```div``` Html element.
 * Fell free to improve and change this project.
 
 
@@ -28,13 +28,13 @@ Add the dependency bellow into your ```pubspec.yaml``` file.
 
 ```yaml
 dependencies:
-  flutter_responsive: ^0.0.5+1 #Please, ensure to use the most updated version
+  flutter_responsive: ^0.0.6 #Please, ensure to use the most updated version
 ```
 Add the reference into your ```.dart``` files
 ```dart
 import 'package:flutter_responsive/flutter_responsive.dart';
 ```
-Use the Widgets ```ResponsiveContainer```, ```ResponsiveRow```, ```ResponsiveCol``` and ```ResponsiveText``` as the way you want to.
+Use the Widgets ```ResponsiveContainer```, ```ResponsiveRow```, ```ResponsiveCol``` and ```JSX``` as the way you want to.
 
 ## Screen Sizes
 
@@ -113,7 +113,7 @@ ResponsiveRow(
     ResponsiveCol(),
     ResponsiveCol(),
     
-    Text('It´s fine to use another widget directly inside a ResponsiveRow', style: ResponsiveTypography.q)
+    Text('It´s fine to use another widget directly inside a ResponsiveRow', style: JSXTypography.q)
   ]
 ),
 ```
@@ -131,7 +131,7 @@ ResponsiveCol(
       'xl' : 1,
   },
   children: [
-      Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit', style: ResponsiveTypography.h2)
+      Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit', style: JSXTypography.h2)
   ]
 )
 ```
@@ -202,7 +202,7 @@ class _HomePage extends State<HomePage> {
                           margin: EdgeInsets.only(bottom: 20),
                           backgroundColor: Colors.blueGrey,
                           children: [
-                            Text('Flutter Responsive Layout', style: ResponsiveTypography.h4.merge(TextStyle(color: Colors.white)))
+                            Text('Flutter Responsive Layout', style: JSXTypography.h4.merge(TextStyle(color: Colors.white)))
                           ]
                       ),
                     ]
@@ -214,17 +214,17 @@ class _HomePage extends State<HomePage> {
                       // By default, the column occupies the entire row, always
                       ResponsiveCol(
                         children: [
-                          ResponsiveText(
+                          JSX(
                             shrinkToFit: true,
                             padding: EdgeInsets.only(bottom: 20),
                             stylesheet: {
-                              'h3': ResponsiveStylesheet(
+                              'h3': JSXStylesheet(
                                   textStyle: TextStyle(color: Theme.of(context).primaryColor),
-                                  displayStyle: DisplayStyle.block
+                                  displayLine: DisplayLine.block
                               ),
-                              'h6': ResponsiveStylesheet(
+                              'h6': JSXStylesheet(
                                   textStyle: TextStyle(color: Theme.of(context).primaryColor),
-                                  displayStyle: DisplayStyle.block
+                                  displayLine: DisplayLine.block
                               )
                             },
                             margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -254,7 +254,7 @@ class _HomePage extends State<HomePage> {
 ```
 
 ### Final result:
-![example_9](example/assets/example9.png "Final result")
+![example_9](example/assets/example7.png "Final result")
 
 # How to run the plugin example
 

@@ -1,4 +1,8 @@
 
+## 0.0.6
+
+* The JSX widget was separated in a different project called ```flutter_jsx``` to allow both plugins to be used and improved separately.
+
 ## 0.0.5+1
 
 * Implemented hashcode comparision methods to JSX_node_text and JSX_node_element classes.
@@ -17,7 +21,7 @@
 
 ## 0.0.3+2
 
-* Class ResponsiveStylesheet fully documented using Dartdoc
+* Class JSXStylesheet fully documented using Dartdoc
 
 ## 0.0.3+1
 
@@ -26,8 +30,8 @@
 ## 0.0.3
 
 * Sandbox page implemented to test visual properties.
-* Shrink property removed from ResponsiveText due to not be intuitive enough. 
-* Display property adopted as global plugin standard to define if ResponsiveText should occupy all line or not, copying the display Html div property.
+* Shrink property removed from JSX due to not be intuitive enough. 
+* Display property adopted as global plugin standard to define if JSX should occupy all line or not, copying the display Html div property.
 * Case tests to Cascade Stylesheet implemented
 
 ## 0.0.2+2

@@ -1,5 +1,6 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_jsx/flutter_jsx.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -33,17 +34,17 @@ class FullscreenImageView extends StatelessWidget {
               padding: EdgeInsets.all(10),
               color: Colors.black54,
               onPressed: () => Navigator.of(context).pop(),
-              child: ResponsiveText(
-                display: DisplayStyle.inline,
+              child: JSX(
+                '<Close/>',
+                display: DisplayLine.inline,
                 stylesheet: {
-                  'Close': ResponsiveStylesheet(
+                  'Close': JSXStylesheet(
                       padding: EdgeInsets.only(bottom: 5)
                   )
                 },
-                widgetNodes: {
+                widgets: {
                   'Close': Icon(FontAwesomeIcons.times, color: Colors.white, size: 26)
                 },
-                text: '<Close/>',
               )
             )
           ),

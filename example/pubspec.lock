@@ -83,13 +83,20 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_jsx:
+    dependency: "direct main"
+    description:
+      name: flutter_jsx
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
   flutter_responsive:
     dependency: "direct dev"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.4"
+    version: "0.0.6"
   flutter_test:
     dependency: "direct dev"
     description: flutter

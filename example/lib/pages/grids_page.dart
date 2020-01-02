@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_jsx/flutter_jsx.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 import 'package:flutter_responsive_example/layouts/sidebar.dart';
 
@@ -55,7 +56,7 @@ class _GridPage extends State<GridPage> {
                           margin: EdgeInsets.only(bottom: 20),
                           backgroundColor: Colors.blueGrey,
                           children: [
-                            Text('Actual Screen Size: '+mediaQuery.size.width.toString()+'px', style: ResponsiveTypography.h4)
+                            Text('Actual Screen Size: '+mediaQuery.size.width.toString()+'px', style: JSXTypography.h4)
                           ]
                       ),
                       ResponsiveCol(
@@ -65,7 +66,7 @@ class _GridPage extends State<GridPage> {
                           },
                           backgroundColor: ResponsiveScreen.isScreenSize('us', screenSize) ? Colors.green : Colors.red,
                           children: [
-                            Text('Is Ultra Small Screen:\n('+ResponsiveScreen.limits['us'].toString()+'px)', style: ResponsiveTypography.h4),
+                            Text('Is Ultra Small Screen:\n('+ResponsiveScreen.limits['us'].toString()+'px)', style: JSXTypography.h4),
                             Text( ResponsiveScreen.isScreenSize('us', screenSize) ? 'true' : 'false')
                           ]
                       ),
@@ -76,7 +77,7 @@ class _GridPage extends State<GridPage> {
                           },
                           backgroundColor: ResponsiveScreen.isScreenSize('xs', screenSize) ? Colors.green : Colors.red,
                           children: [
-                            Text('Is Extra Small Screen:\n('+ResponsiveScreen.limits['xs'].toString()+'px)', style: ResponsiveTypography.h4),
+                            Text('Is Extra Small Screen:\n('+ResponsiveScreen.limits['xs'].toString()+'px)', style: JSXTypography.h4),
                             Text( ResponsiveScreen.isScreenSize('xs', screenSize) ? 'true' : 'false')
                           ]
                       ),
@@ -87,7 +88,7 @@ class _GridPage extends State<GridPage> {
                             'xs': 12
                           },
                           children: [
-                            Text('Is Small Screen:\n('+ResponsiveScreen.limits['sm'].toString()+'px)', style: ResponsiveTypography.h4),
+                            Text('Is Small Screen:\n('+ResponsiveScreen.limits['sm'].toString()+'px)', style: JSXTypography.h4),
                             Text( ResponsiveScreen.isScreenSize('sm', screenSize) ? 'true' : 'false')
                           ]
                       ),
@@ -98,7 +99,7 @@ class _GridPage extends State<GridPage> {
                             'xs': 12
                           },
                           children: [
-                            Text('Is Medium Screen:\n('+ResponsiveScreen.limits['md'].toString()+'px)', style: ResponsiveTypography.h4),
+                            Text('Is Medium Screen:\n('+ResponsiveScreen.limits['md'].toString()+'px)', style: JSXTypography.h4),
                             Text( ResponsiveScreen.isScreenSize('md', screenSize) ? 'true' : 'false')
                           ]
                       ),
@@ -109,7 +110,7 @@ class _GridPage extends State<GridPage> {
                             'xs': 12
                           },
                           children: [
-                            Text('Is Large Screen:\n('+ResponsiveScreen.limits['lg'].toString()+'px)', style: ResponsiveTypography.h4),
+                            Text('Is Large Screen:\n('+ResponsiveScreen.limits['lg'].toString()+'px)', style: JSXTypography.h4),
                             Text( ResponsiveScreen.isScreenSize('lg', screenSize) ? 'true' : 'false')
                           ]
                       ),
@@ -120,7 +121,7 @@ class _GridPage extends State<GridPage> {
                             'xs': 12
                           },
                           children: [
-                            Text('Is Extra Large Screen:\n('+ResponsiveScreen.limits['xl'].toString()+'px)', style: ResponsiveTypography.h4),
+                            Text('Is Extra Large Screen:\n('+ResponsiveScreen.limits['xl'].toString()+'px)', style: JSXTypography.h4),
                             Text( ResponsiveScreen.isScreenSize('xl', screenSize) ? 'true' : 'false')
                           ]
                       ),
@@ -131,7 +132,7 @@ class _GridPage extends State<GridPage> {
                             'ul': 12
                           },
                           children: [
-                            Text('Is Ultra Large Screen:\n('+ResponsiveScreen.limits['ul'].toString()+'px)', style: ResponsiveTypography.h4),
+                            Text('Is Ultra Large Screen:\n('+ResponsiveScreen.limits['ul'].toString()+'px)', style: JSXTypography.h4),
                             Text( ResponsiveScreen.isScreenSize('ul', screenSize) ? 'true' : 'false')
                           ]
                       ),
@@ -142,7 +143,7 @@ class _GridPage extends State<GridPage> {
                 ResponsiveRow(
                     margin: EdgeInsets.only(top: 20, bottom: 5),
                     children: <Widget>[
-                      Text('Grid Test', style: ResponsiveTypography.h2)
+                      Text('Grid Test', style: JSXTypography.h2)
                     ]
                 ),
                 ResponsiveRow(
@@ -161,7 +162,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.orange,
                         gridSizes: { 'xs' : 4 },
                         children: [
-                          Text('XS-4', style: ResponsiveTypography.h4),
+                          Text('XS-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -170,7 +171,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.green,
                         gridSizes: { 'xs' : 4 },
                         children: [
-                          Text('XS-4', style: ResponsiveTypography.h4),
+                          Text('XS-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -179,7 +180,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.blue,
                         gridSizes: { 'xs' : 4 },
                         children: [
-                          Text('XS-4', style: ResponsiveTypography.h4),
+                          Text('XS-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -190,7 +191,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.orange,
                         gridSizes: { 'sm' : 4 },
                         children: [
-                          Text('SM-4', style: ResponsiveTypography.h4),
+                          Text('SM-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -199,7 +200,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.green,
                         gridSizes: { 'sm' : 4 },
                         children: [
-                          Text('SM-4', style: ResponsiveTypography.h4),
+                          Text('SM-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -208,7 +209,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.blue,
                         gridSizes: { 'sm' : 4 },
                         children: [
-                          Text('SM-4', style: ResponsiveTypography.h4),
+                          Text('SM-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -219,7 +220,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.orange,
                         gridSizes: { 'sm' : 4 },
                         children: [
-                          Text('MD-4', style: ResponsiveTypography.h4),
+                          Text('MD-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -228,7 +229,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.green,
                         gridSizes: { 'sm' : 4 },
                         children: [
-                          Text('MD-4', style: ResponsiveTypography.h4),
+                          Text('MD-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -237,7 +238,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.blue,
                         gridSizes: { 'sm' : 4 },
                         children: [
-                          Text('MD-4', style: ResponsiveTypography.h4),
+                          Text('MD-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -248,7 +249,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.orange,
                         gridSizes: { 'lg' : 4 },
                         children: [
-                          Text('LG-4', style: ResponsiveTypography.h4),
+                          Text('LG-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -257,7 +258,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.green,
                         gridSizes: { 'lg' : 4 },
                         children: [
-                          Text('LG-4', style: ResponsiveTypography.h4),
+                          Text('LG-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -266,7 +267,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.blue,
                         gridSizes: { 'lg' : 4 },
                         children: [
-                          Text('LG-4', style: ResponsiveTypography.h4),
+                          Text('LG-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -277,7 +278,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.orange,
                         gridSizes: { 'xl' : 4 },
                         children: [
-                          Text('XL-4', style: ResponsiveTypography.h4),
+                          Text('XL-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -286,7 +287,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.green,
                         gridSizes: { 'xl' : 4 },
                         children: [
-                          Text('XL-4', style: ResponsiveTypography.h4),
+                          Text('XL-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -295,7 +296,7 @@ class _GridPage extends State<GridPage> {
                         backgroundColor: Colors.blue,
                         gridSizes: { 'xl' : 4 },
                         children: [
-                          Text('XL-4', style: ResponsiveTypography.h4),
+                          Text('XL-4', style: JSXTypography.h4),
                           Text('\n\n')
                         ]..addAll(_aLotOfText)
                     ),
@@ -304,7 +305,7 @@ class _GridPage extends State<GridPage> {
                     ResponsiveRow(
                         margin: EdgeInsets.only(top: 20, bottom: 5),
                         children: <Widget>[
-                          Text('Grid Offset Test', style: ResponsiveTypography.h2)
+                          Text('Grid Offset Test', style: JSXTypography.h2)
                         ]
                     ),
                     ResponsiveRow(
@@ -332,7 +333,7 @@ class _GridPage extends State<GridPage> {
                     ResponsiveRow(
                         margin: EdgeInsets.only(top: 20, bottom: 25),
                         children: <Widget>[
-                          Text('Grid Multiple Screen Resizing', style: ResponsiveTypography.h2)
+                          Text('Grid Multiple Screen Resizing', style: JSXTypography.h2)
                         ]
                     ),
 

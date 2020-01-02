@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_jsx/flutter_jsx.dart';
 import 'package:flutter_responsive_example/pages/grids_page.dart';
 import 'package:flutter_responsive_example/pages/grids_performance.dart';
 import 'package:flutter_responsive_example/pages/home_page.dart';
 import 'package:flutter_responsive_example/pages/sandbox_page.dart';
-import 'package:flutter_responsive_example/pages/typography_page.dart';
-import 'package:flutter_responsive_example/pages/typography_performance.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 
@@ -42,13 +41,13 @@ class Sidebar extends StatelessWidget {
               ),
               ResponsiveRow(
                 children: <Widget>[
-                  Text('Responsive Layouts', style: ResponsiveTypography.h4.apply(color: Colors.white)),
+                  Text('Responsive Layouts', style: JSXTypography.h4.apply(color: Colors.white)),
                 ],
               ),
               ResponsiveRow(
                 children: <Widget>[
-                  ResponsiveText(
-                    text: 'for <i>Flutter</i>',
+                  JSX(
+                    'for <i>Flutter</i>',
                     textStyle: TextStyle(color: Colors.white, fontSize: 12),
                   )
                 ],
@@ -94,35 +93,6 @@ class Sidebar extends StatelessWidget {
             ],
           ),
           Divider(height: 2.0, indent: 16.0, endIndent: 10),
-          ExpansionTile(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text("Typography"),
-                Icon(FontAwesomeIcons.font)
-              ],
-            ),
-            children: <Widget>[
-              ListTile(
-                contentPadding: EdgeInsets.only(left: 30, right: 20),
-                title: Text('Single Cases Tests'),
-                trailing: Icon(FontAwesomeIcons.flask),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  Navigator.push(context, MaterialPageRoute( builder: (BuildContext context) => TypographyPage() ));
-                },
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.only(left: 30, right: 20),
-                title: Text('Performance Test'),
-                trailing: Icon(FontAwesomeIcons.chartLine),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  Navigator.push(context, MaterialPageRoute( builder: (BuildContext context) => TypographyPerformancePage() ));
-                },
-              )
-            ],
-          ),
           ListTile(
             contentPadding: EdgeInsets.only(left: 15, right: 20),
             title: Text('Sandbox'),

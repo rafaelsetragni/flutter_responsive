@@ -31,6 +31,8 @@ class _GridPerformancePage extends State<GridPerformancePage> {
     super.initState();
   }
 
+  var _letterStyle = TextStyle(fontWeight: FontWeight.bold, color: Colors.white);
+
   @override
   Widget build(BuildContext context) {
 
@@ -87,11 +89,11 @@ class _GridPerformancePage extends State<GridPerformancePage> {
                   children: List<int>.generate(columns, (index) => index).map((colIndex) =>
                       ResponsiveCol(
                         alignment: Alignment.center,
-                        backgroundColor: Color((seed * (rowIndex * 12 + colIndex) * 0xFFFFFF).toInt() << 0).withOpacity(1.0),
+                        backgroundColor: Color((seed * (rowIndex * 12 + colIndex) * 0xFFFFFF).toInt() << 0),
                         height: heightBoxes,
-                        gridSizes: { 'us' : 1 },
+                        gridSizes: { ScreenSize.us : 1 },
                         children: <Widget>[
-                          Text('R', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
+                          Text('R', style: _letterStyle)
                         ],
                       )
                   ).toList(),
@@ -110,8 +112,8 @@ class _GridPerformancePage extends State<GridPerformancePage> {
                         child: Container(
                           alignment: Alignment.center,
                           height: heightBoxes,
-                          color: Color((seed * (rowIndex * 12 + colIndex) * 0xFFFFFF).toInt() << 0).withOpacity(1.0),
-                          child: Text('B', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+                          color: Color((seed * (rowIndex * 12 + colIndex) * 0xFFFFFF).toInt() << 0),
+                          child: Text('B', style: _letterStyle),
                         ),
                       )
                     ).toList()

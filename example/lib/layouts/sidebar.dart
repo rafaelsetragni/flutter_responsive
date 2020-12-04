@@ -60,7 +60,7 @@ class Sidebar extends StatelessWidget {
             trailing: Icon(FontAwesomeIcons.home),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.push(context, MaterialPageRoute( builder: (BuildContext context) => HomePage() ));
+              Navigator.pushReplacement(context, MaterialPageRoute( builder: (BuildContext context) => HomePage() ));
             },
           ),
           ExpansionTile(
@@ -78,7 +78,7 @@ class Sidebar extends StatelessWidget {
                 trailing: Icon(FontAwesomeIcons.flask),
                 onTap: () {
                   Navigator.of(context).pop();
-                  Navigator.push(context, MaterialPageRoute( builder: (BuildContext context) => GridPage() ));
+                  Navigator.pushReplacement(context, MaterialPageRoute( builder: (BuildContext context) => GridPage() ));
                 },
               ),
               ListTile(
@@ -87,7 +87,7 @@ class Sidebar extends StatelessWidget {
                 trailing: Icon(FontAwesomeIcons.chartLine),
                 onTap: () {
                   Navigator.of(context).pop();
-                  Navigator.push(context, MaterialPageRoute( builder: (BuildContext context) => GridPerformancePage() ));
+                  Navigator.pushReplacement(context, MaterialPageRoute( builder: (BuildContext context) => GridPerformancePage() ));
                 },
               )
             ],
@@ -99,7 +99,7 @@ class Sidebar extends StatelessWidget {
             trailing: Icon(FontAwesomeIcons.fortAwesome),
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.push(context, MaterialPageRoute( builder: (BuildContext context) => SandboxPage() ));
+              Navigator.pushReplacement(context, MaterialPageRoute( builder: (BuildContext context) => SandboxPage() ));
             },
           ),
         ],

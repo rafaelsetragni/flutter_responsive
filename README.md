@@ -17,7 +17,7 @@ To share your improvements, please first do a Fork of this project, change what 
 # IMPORTANT NOTES:
 
 * This plugin was based on [Bootstrap Web Project](https://getbootstrap.com/), but do not implement all its features (not yet).
-* The column's responsivity is based on his closest parent widget size, not over the screen size, such as Bootstrap.
+* The column's layer responsiveness is based on the size of the global screen, such as Bootstrap does.
 * All the widgets contains margin, padding, width, height (maximum and minimum edges), such as ```div``` Html element.
 * Fell free to improve and change this project.
 
@@ -61,19 +61,19 @@ All the limits could be personalized as you need, changing the limit Hashmap int
 ```dart
 /* Map<String, double> */
 ResponsiveScreen.limits = {
-    'us': 0.00,
+    ScreenSize.us: 0.00,
     // Smart watches
-    'xs': 310.00,
+    ScreenSize.xs: 310.00,
     // Small phones (5c)
-    'sm': 576.00,
+    ScreenSize.sm: 576.00,
     // Medium phones
-    'md': 768.00,
+    ScreenSize.md: 768.00,
     // Large phones (iPhone X)
-    'lg': 992.00,
+    ScreenSize.lg: 992.00,
     // Tablets
-    'xl': 1200.00,
+    ScreenSize.xl: 1200.00,
     // Laptops
-    'ul': 2000.00,
+    ScreenSize.ul: 2000.00,
     // Desktops and TVs 4K
   };
 ```
@@ -87,7 +87,7 @@ This plugin have 3 major grid elements:
 ResponsiveContainer(
 
   // Determines the container's limit size
-  widthLimit: ResponsiveScreen.limits['lg'],
+  widthLimit: ResponsiveScreen.limits[ScreenSize.lg],
   margin: EdgeInsets.symmetric(horizontal: 10),
   
   children: <Widget>[
@@ -113,7 +113,7 @@ ResponsiveRow(
     ResponsiveCol(),
     ResponsiveCol(),
     
-    Text('It´s fine to use another widget directly inside a ResponsiveRow', style: JSXTypography.q)
+    Text('It´s fine to use another widget directly inside a ResponsiveRow')
   ]
 ),
 ```
@@ -125,13 +125,13 @@ ResponsiveCol(
   padding: EdgeInsets.all(10),
   backgroundColor: Colors.blue,
   gridSizes: {
-      'xs' : 4,
-      'sm' : 3,
-      'lg' : 2,
-      'xl' : 1,
+      ScreenSize.xs : 4,
+      ScreenSize.sm : 3,
+      ScreenSize.lg : 2,
+      ScreenSize.xl : 1,
   },
   children: [
-      Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit', style: JSXTypography.h2)
+      Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit')
   ]
 )
 ```
@@ -166,10 +166,10 @@ class _HomePage extends State<HomePage> {
               padding: EdgeInsets.all(10),
               backgroundColor: Colors.blue,
               gridSizes: {
-                'xs' : 4,
-                'sm' : 3,
-                'lg' : 2,
-                'xl' : 1,
+                ScreenSize.xs : 4,
+                ScreenSize.sm : 3,
+                ScreenSize.lg : 2,
+                ScreenSize.xl : 1,
               },
               children: [
                 Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit')

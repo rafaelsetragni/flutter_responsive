@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_responsive/src/responsive_screen.dart';
 
+import 'responsive_enum.dart';
+
 /// Base widget which contains all common responsive behaviours
 abstract class ResponsiveWidget extends StatelessWidget {
   final Alignment alignment;
@@ -20,6 +22,8 @@ abstract class ResponsiveWidget extends StatelessWidget {
   final double maxHeight;
   final double minHeight;
 
+  static final double _preCalculatedFraction = 1 / 12;
+
   ResponsiveWidget(
       {Key key,
       this.alignment = Alignment.topLeft,
@@ -36,15 +40,15 @@ abstract class ResponsiveWidget extends StatelessWidget {
       this.children});
 
   @protected
-  double getColumnSize(Map<String, int> gridSizes, double screenSize) {
+  double getColumnSize(Map<ScreenSize, int> gridSizes, double screenSize) {
     double
         /* 1/12 columns */
-        fraction = 0.08332,
+        fraction = _preCalculatedFraction,
         calculatedWidthPercentage = 1;
 
     if ((ResponsiveScreen.limits?.isNotEmpty ?? false) &&
         (gridSizes?.isNotEmpty ?? false)) {
-      for (String gridTag in gridSizes.keys) {
+      for (ScreenSize gridTag in gridSizes.keys) {
         if (ResponsiveScreen.isScreenSize(gridTag, screenSize)) {
           calculatedWidthPercentage = gridSizes.containsKey(gridTag)
               ? (fraction * gridSizes[gridTag])
@@ -60,7 +64,7 @@ abstract class ResponsiveWidget extends StatelessWidget {
 
   @protected
   double getWidgetWidth(double parentWidth) {
-    double widgetWidth = width != null ? width : parentWidth;
+    double widgetWidth = width ?? parentWidth;
     if (maxWidth != null && parentWidth > maxWidth) {
       widgetWidth = maxWidth;
     }

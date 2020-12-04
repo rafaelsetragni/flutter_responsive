@@ -45,7 +45,7 @@ class ResponsiveContainer extends ResponsiveWidget {
       return Align(
         alignment: Alignment.topCenter,
         child: Container(
-          width: getContainerSize(maxWidth, constraints.maxWidth),
+          width: min(maxWidth, constraints.maxWidth),
           height: getWidgetHeight(constraints.maxHeight),
           padding: padding,
           margin: margin,

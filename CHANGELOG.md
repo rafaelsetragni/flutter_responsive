@@ -1,3 +1,8 @@
+## 1.0.0
+
+* Final version finally released.
+* Screen size tags changed from text to enumerators, to increase performance.
+* Documentation updated
 
 ## 0.0.6
 

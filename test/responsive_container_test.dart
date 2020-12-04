@@ -1,4 +1,5 @@
 
+import 'package:flutter_responsive/src/responsive_enum.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_responsive/flutter_responsive.dart';
 
@@ -11,7 +12,7 @@ void main() {
 
     businessRule = 'Container behaviour should be limited to 95% (2,5% for each offset side) if parent container is larger than small limit';
 
-    double limit = ResponsiveScreen.limits['md'];
+    double limit = ResponsiveScreen.limits[ScreenSize.md];
 
     expect( containerTest.getContainerSize( limit, limit * 0.5  ), limit * 0.5 , reason: businessRule );
     expect( containerTest.getContainerSize( limit, limit * 0.94 ), limit * 0.94, reason: businessRule );

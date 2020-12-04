@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'responsive_enum.dart';
 import 'responsive_widget.dart';
 
 /// Responsive column which change his own width based on parent width
 class ResponsiveCol extends ResponsiveWidget {
   /// List of column sizes for all screen limits defined on [ResponsiveScreen]
-  final Map<String, int> gridSizes;
+  final Map<ScreenSize, int> gridSizes;
 
   /// List of column offset sizes for all screen limits defined on [ResponsiveScreen]
-  final Map<String, int> gridOffsetSizes;
+  final Map<ScreenSize, int> gridOffsetSizes;
 
   ResponsiveCol({
     Key key,
@@ -40,55 +41,6 @@ class ResponsiveCol extends ResponsiveWidget {
             maxHeight: maxHeight,
             minHeight: minHeight,
             children: children);
-/*
-  @override
-  Widget build(BuildContext context) {
-
-    MediaQueryData mediaQuery = MediaQuery.of(context);
-
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-
-      EdgeInsets localMargin;
-
-      if(gridOffsetSizes != null){
-        double offset = getColumnSize(gridOffsetSizes, mediaQuery.size.width) * constraints.maxWidth;
-
-        if(
-        alignment == Alignment.topLeft ||
-            alignment == Alignment.centerLeft ||
-            alignment == Alignment.bottomLeft
-        ){
-          localMargin = EdgeInsets.only(left: offset).add(margin ?? EdgeInsets.zero);
-        }
-        if(
-        alignment == Alignment.topRight ||
-            alignment == Alignment.centerRight ||
-            alignment == Alignment.bottomRight
-        ){
-          localMargin = EdgeInsets.only(left: offset).add(margin ?? EdgeInsets.zero);
-        }
-      }
-
-      // Are not performing nicely
-      return FractionallySizedBox(
-        widthFactor: getColumnSize(gridSizes, mediaQuery.size.width),
-        //heightFactor: 1.0,
-        child: Container(
-          alignment: alignment ?? Alignment.topLeft,
-          height: getWidgetHeight(double.infinity),
-          decoration: decoration,
-          padding: padding,
-          margin: localMargin ?? margin,
-          color: backgroundColor,
-          child: children != null ? Wrap(
-              children: children
-          ) : null
-        )
-      );
-    });
-  }
-*/
 
   @override
   buildWidget(BuildContext context) {

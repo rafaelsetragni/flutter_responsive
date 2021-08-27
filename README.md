@@ -19,7 +19,7 @@ To share your improvements, please first do a Fork of this project, change what 
 * This plugin was based on [Bootstrap Web Project](https://getbootstrap.com/), but do not implement all its features (not yet).
 * The column's layer responsiveness is based on the size of the global screen, such as Bootstrap does.
 * All the widgets contains margin, padding, width, height (maximum and minimum edges), such as ```div``` Html element.
-* Fell free to improve and change this project.
+* Feel free to improve and change this project.
 
 
 # How to Use
